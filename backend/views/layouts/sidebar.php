@@ -16,88 +16,98 @@ use yii\helpers\Html;
          m-menu-vertical="1" m-menu-scrollable="1" m-menu-dropdown-timeout="500" style="position: relative;">
 
         <!-- SIDEBAR START -->
-        <?= MetronicSidebar::widget( [
+        <?= MetronicSidebar::widget([
             'items' => [
 
                 [
-                    'label'    => 'Обратная связь',
-                    'icon'     => 'flaticon-mail',
+                    'label' => 'Обратная связь',
+                    'icon' => 'flaticon-mail',
                     'template' => 'submenu',
-                    'url'      => [ '#' ],
-                    'items'    => [
-                        [ 'label' => 'Заявки', 'url' => [ '/feedback/index' ] ],
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Заявки', 'url' => ['/feedback/index']],
                     ]
                 ],
                 [
-                    'label'    => 'Главная',
-                    'icon'     => 'fab fa-fort-awesome',
+                    'label' => 'Главная',
+                    'icon' => 'fab fa-fort-awesome',
                     'template' => 'submenu',
-                    'url'      => [ '#' ],
-                    'items'    => [
-                        [ 'label' => 'Слайдер', 'url' => [ '/home-slider/index' ] ],
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Слайдер', 'url' => ['/home-slider/index']],
                     ]
                 ],
                 [
-                    'label'    => 'Генплан',
-                    'icon'     => 'fa fa-at',
-                    'template' => 'single',
-                    'url'      => [ '#' ],
-                ],
-                [
-                    'label'    => 'Выбрать квартиру',
-                    'icon'     => 'fa fa-at',
-                    'template' => 'single',
-                    'url'      => [ '#' ],
-                ],
-                [
-                    'label'    => 'Галерея',
-                    'template' => 'single',
-                    'icon'     => 'fa fa-eye',
-                    'url'      => [ '/gallery/index' ],
-                ],
-                [
-                    'label'    => 'О застройщике',
-                    'icon'     => 'fa fa-at',
-                    'template' => 'single',
-                    'url'      => [ '#' ],
-                ],
-                [
-                    'label'    => 'Настройки',
-                    'icon'     => 'fa fa-cog',
+                    'label' => 'О застройщике',
+                    'icon' => 'fab fa-fort-awesome',
                     'template' => 'submenu',
-                    'url'      => [ '#' ],
-                    'items'    => [
-                        [ 'label' => 'Меню 1', 'url' => [ '/settings/#' ] ],
-                        [ 'label' => 'Меню 2', 'url' => [ '/settings/#' ] ],
-                        [ 'label' => 'Каналы, группы, чаты', 'url' => [ '/settings/social-group-settings' ] ],
-                        [ 'label' => 'Email и контакты', 'url' => [ '/settings/site-config-settings' ] ],
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Контент', 'url' => ['/settings/about-developer-settings']],
+                        ['label' => 'Документы', 'url' => ['/document/index']],
+                        ['label' => 'Объекты застройщика', 'url' => ['/developer-object/index']],
                     ]
                 ],
                 [
-                    'label'    => 'Пользователи',
-                    'icon'     => 'flaticon-users',
+                    'label' => 'Галерея',
+                    'icon' => 'fab fa-fort-awesome',
+                    'template' => 'single',
+                    'url' => ['/gallery/index'],
+                ],
+                [
+                    'label' => 'Генплан',
+                    'icon' => 'fab fa-fort-awesome',
+                    'template' => 'single',
+                    'url' => ['/genplan/index'],
+                ],
+//                [
+//                    'label' => 'Выбрать квартиру',
+//                    'icon' => 'fa fa-at',
+//                    'template' => 'single',
+//                    'url' => ['#'],
+//                ],
+                [
+                    'label' => 'О застройщике',
+                    'icon' => 'fab fa-fort-awesome',
+                    'template' => 'single',
+                    'url' => ['/settings/about-developer-settings'],
+                ],
+                [
+                    'label' => 'Настройки',
+                    'icon' => 'fa fa-cog',
                     'template' => 'submenu',
-                    'url'      => [ '#' ],
-                    'items'    => [
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Меню', 'url' => ['/settings/navigation-menu-settings']],
+                        ['label' => 'Каналы, группы, чаты', 'url' => ['/settings/social-group-settings']],
+                        ['label' => 'Email и контакты', 'url' => ['/settings/site-config-settings']],
+                    ]
+                ],
+                [
+                    'label' => 'Пользователи',
+                    'icon' => 'flaticon-users',
+                    'template' => 'submenu',
+                    'url' => ['#'],
+                    'items' => [
                         [
                             'label' => 'Управление пользователями',
-                            'icon'  => 'fa fa-user`',
-                            'url'   => [ '/user/admin/index' ],
+                            'icon' => 'fa fa-user`',
+                            'url' => ['/user/admin/index'],
                         ],
                         [
                             'label' => 'Подсказки в админке',
-                            'url'   => [ '/tips/tip/index' ],
+                            'url' => ['/tips/tip/index'],
                         ],
                     ]
                 ],
 
                 [
-                    'label'    => 'SEO-инструменты',
-                    'icon'     => 'flaticon-layers',
+                    'label' => 'SEO-инструменты',
+                    'icon' => 'flaticon-layers',
                     'template' => 'submenu',
-                    'url'      => [ '#' ],
-                    'items'    => [
-                        [ 'label' => 'SEO по URL', 'url' => [ '/seo/seo-by-url/index' ] ],
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'SEO по URL', 'url' => ['/seo/seo-by-url/index']],
                     ]
                 ],
 

@@ -2,25 +2,29 @@
 
 namespace common\models;
 
-use mohorev\file\UploadImageBehavior;
-use yii\behaviors\TimestampBehavior;
-use noIT\upload\UploadsBehavior;
 use Imagine\Image\ManipulatorInterface;
+use mohorev\file\UploadImageBehavior;
+use noIT\upload\UploadsBehavior;
+use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "document".
+ * This is the model class for table "developer_object".
  *
  * @property int $id
  * @property string $name_ru
  * @property string $name_ua
- * @property string $image
- * @property string $file
+ * @property string $image_logo
+ * @property string $image_illustration
+ * @property string $body_ru
+ * @property string $body_ua
+ * @property string $link
  * @property int $status
  * @property int $sort_order
  * @property int $created_at
  * @property int $updated_at
  */
-class Document extends \yii\db\ActiveRecord
+class DeveloperObject extends \yii\db\ActiveRecord
 {
     const STATUS_ENABLE = 10;
     const STATUS_DISABLE = 0;
@@ -30,7 +34,7 @@ class Document extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'document';
+        return 'developer_object';
     }
 
     /**
@@ -40,15 +44,14 @@ class Document extends \yii\db\ActiveRecord
     {
         return [
             [['name_ru', 'name_ua', 'sort_order'], 'required'],
+            [['body_ru', 'body_ua'], 'string'],
             [['status', 'sort_order', 'created_at', 'updated_at'], 'integer'],
-            [['name_ru', 'name_ua'], 'string', 'max' => 255],
+            [['name_ru', 'name_ua', 'link'], 'string', 'max' => 255],
 
-            [['image'], 'image', 'maxSize' => 10000 * 1024, 'extensions' => 'jpeg, jpg, png'],
-
-            [['image'], 'image', 'skipOnEmpty' => false, 'on' => ['default']],
-            [['image'], 'image', 'skipOnEmpty' => true, 'on' => ['update']],
-
-            [['file'], 'file', 'skipOnEmpty' => true, 'on' => ['default', 'update']],
+            [['image_logo', 'image_illustration'], 'image', 'extensions' => 'jpeg, jpg, png'],
+            [['image_logo'], 'image', 'skipOnEmpty' => false, 'on' => ['default']],
+            [['image_illustration'], 'image', 'skipOnEmpty' => true, 'on' => ['default']],
+            [['image_logo', 'image_illustration'], 'image', 'skipOnEmpty' => true, 'on' => ['update']],
         ];
     }
 
@@ -61,7 +64,7 @@ class Document extends \yii\db\ActiveRecord
             'imageUploads' => [
                 'class' => UploadsBehavior::className(),
                 'attributes' => [
-                    'image' => [
+                    'image_logo' => [
                         'class' => UploadImageBehavior::className(),
                         'createThumbsOnSave' => true,
                         'createThumbsOnRequest' => true,
@@ -72,30 +75,25 @@ class Document extends \yii\db\ActiveRecord
                                 'quality' => 90,
                                 'mode' => ManipulatorInterface::THUMBNAIL_OUTBOUND
                             ],
-                            'thumb-small' => [
-                                'width' => 222,
-                                'height' => 318,
-                                'quality' => 90,
-                                'mode' => ManipulatorInterface::THUMBNAIL_OUTBOUND
-                            ],
                         ],
-                        'attribute' => 'image',
+                        'attribute' => 'image_logo',
                         'scenarios' => ['default', 'update'],
-                        'path' => '@cdn/document/{id}',
-                        'url' => '@cdnUrl/document/{id}',
+                        'path' => '@cdn/developer-object/{id}/logotype',
+                        'url' => '@cdnUrl/developer-object/{id}/logotype',
                     ],
-                    'file' => [
+                    'image_illustration' => [
                         'class' => UploadImageBehavior::className(),
                         'createThumbsOnSave' => true,
                         'createThumbsOnRequest' => true,
                         'generateNewName' => true,
-                        'attribute' => 'file',
-                        'scenarios' => ['default'],
-                        'path' => '@cdn/document/{id}',
-                        'url' => '@cdnUrl/document/{id}',
+                        'attribute' => 'image_illustration',
+                        'scenarios' => ['default', 'update'],
+                        'path' => '@cdn/developer-object/{id}/illustration',
+                        'url' => '@cdnUrl/developer-object/{id}/illustration',
                     ],
                 ],
             ],
         ];
     }
+
 }

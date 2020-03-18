@@ -40,7 +40,6 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['settings/s
                                 'items' => [
                                     'instagram' => 'Instagram',
                                     'facebook' => 'Facebook',
-                                    'vk' => 'VK',
                                     'youtube' => 'YouTube',
                                     'telegram' => 'Telegram',
                                 ]

@@ -11,6 +11,7 @@ class SiteConfigSettings extends Settings
     public $admin_email;
     public $email;
     public $phone;
+    public $work_time;
 
     public function attributeLabels()
     {
@@ -18,13 +19,14 @@ class SiteConfigSettings extends Settings
             'admin_email' => 'Email(ы) для получения писем',
             'email' => 'Email',
             'phone' => 'Телефоны',
+            'work_time' => 'Время работы (Например: 9-00 до 18-00)',
         ];
     }
 
     public function rules()
     {
         return [
-            [['admin_email', 'email'], 'string'],
+            [['admin_email', 'email', 'work_time'], 'string'],
             [['phone'], 'each', 'rule' => ['safe']]
         ];
     }
@@ -39,6 +41,8 @@ class SiteConfigSettings extends Settings
 
         $this->email = $settings->get('email', self::$SECTION);
 
+        $this->work_time = $settings->get('work_time', self::$SECTION);
+
         if( ($phone = unserialize($settings->get('phone', self::$SECTION))) ) {
             $this->phone = $phone;
         } else {
@@ -46,6 +50,9 @@ class SiteConfigSettings extends Settings
         }
     }
 
+    /**
+     * @return bool
+     */
     public function save()
     {
         $settings = Yii::$app->settings;
@@ -53,6 +60,8 @@ class SiteConfigSettings extends Settings
         $settings->set('admin_email', $this->admin_email, self::$SECTION, 'string');
 
         $settings->set('email', $this->email, self::$SECTION, 'string');
+
+        $settings->set('work_time', $this->work_time, self::$SECTION, 'string');
 
         $settings->set('phone', serialize($this->phone), self::$SECTION, 'string');
 

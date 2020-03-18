@@ -44,7 +44,6 @@ $columns = [
 		'urlCreator' => function($action, $model, $key, $index) {
 			switch($action) {
 				case 'view':
-					/** TODO - link to frontend */
 					return \yii\helpers\Url::to(['view', 'id' => $model->id]);
 					break;
 				case 'delete':

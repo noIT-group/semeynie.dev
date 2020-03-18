@@ -3,10 +3,11 @@
 return [
     '/' => 'site/index',
 
-//    '/genplan' => '',
-//    '/choose' => '',
-//    '/gallery' => '',
-//    '/about' => '',
+    '/about' => 'site/about',
+
+    '/genplan' => 'site/genplan',
+    '/choose' => 'site/choose',
+    '/gallery' => 'site/gallery',
 
     '/contact' => 'site/contacts',
 ];

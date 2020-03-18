@@ -52,6 +52,82 @@ class SiteController extends Controller
     /**
      * @return string
      */
+    public function actionAbout()
+    {
+        $data = [
+            'ru' => [
+                'title' => "О застройщике",
+            ],
+            'ua' => [
+                'title' => "Про забудовника",
+            ],
+        ];
+
+        $this->view->title = $data[Yii::$app->language]['title'];
+
+        return $this->render('about');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionGenplan()
+    {
+        $data = [
+            'ru' => [
+                'title' => "Генплан",
+            ],
+            'ua' => [
+                'title' => "Генплан",
+            ],
+        ];
+
+        $this->view->title = $data[Yii::$app->language]['title'];
+
+        return $this->render('genplan');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionChoose()
+    {
+        $data = [
+            'ru' => [
+                'title' => "Выбрать квартиру",
+            ],
+            'ua' => [
+                'title' => "Вибрати квартиру",
+            ],
+        ];
+
+        $this->view->title = $data[Yii::$app->language]['title'];
+
+        return $this->render('choose');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionGallery()
+    {
+        $data = [
+            'ru' => [
+                'title' => "Галерея",
+            ],
+            'ua' => [
+                'title' => "Галерея",
+            ],
+        ];
+
+        $this->view->title = $data[Yii::$app->language]['title'];
+
+        return $this->render('gallery');
+    }
+
+    /**
+     * @return string
+     */
     public function actionContacts()
     {
         $data = [
@@ -65,6 +141,6 @@ class SiteController extends Controller
 
         $this->view->title = $data[Yii::$app->language]['title'];
 
-        return $this->render('about');
+        return $this->render('contact');
     }
 }

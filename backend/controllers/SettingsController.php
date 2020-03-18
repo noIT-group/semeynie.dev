@@ -1,11 +1,12 @@
 <?php
 namespace backend\controllers;
 
+use common\models\settings\AboutDeveloperSettings;
+use common\models\settings\NavigationMenuSettings;
 use common\models\settings\SiteConfigSettings;
 use common\models\settings\SocialGroupSettings;
 use yii\web\Controller;
 use Yii;
-use zxbodya\yii2\galleryManager\GalleryManagerAction;
 
 class SettingsController extends Controller
 {
@@ -29,14 +30,37 @@ class SettingsController extends Controller
                 'url' => Yii::getAlias('@cdnUrl/settings/body'),
                 'path' => Yii::getAlias('@cdn/settings/body'),
             ],
-            'galleryApi' => [
-                'class' => GalleryManagerAction::className(),
-                'types' => [
-                    'terraces-section-settings' => TerracesSectionSettings::className()
-                ]
-            ],
-
         ];
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionNavigationMenuSettings()
+    {
+        $model = new NavigationMenuSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('navigation-menu-settings', ['model' => $model]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionAboutDeveloperSettings()
+    {
+        $model = new AboutDeveloperSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('about-developer-settings', ['model' => $model]);
     }
 
     // Настройки (START)
