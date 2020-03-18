@@ -1,0 +1,1 @@
+<div class="blueimp-gallery blueimp-gallery-controls" id="blueimp-gallery-photos"><div class="slides"></div><a class="prev">‹</a><a class="next">›</a><a class="close">×</a><a class="play-pause"></a><ol class="indicator"></ol></div>
