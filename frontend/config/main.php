@@ -64,13 +64,6 @@ return [
                     'baseUrl' => '@web',
                     'js' => [
                         'js/jquery-3.4.1.min.js',
-                        'js/slick.min.js',
-                        'js/jquery.blueimp-gallery.min.js',
-                        'js/jquery.fancybox.min.js',
-                        'js/jquery.mCustomScrollbar.concat.min.js',
-                        'js/jquery.mask.min.js',
-                        'js/typed.min.js',
-                        'https://api.thefloors.io/v1/site/239/widget',
                         'https://cdn.jsdelivr.net/npm/sweetalert2@8',
                     ]
                 ]

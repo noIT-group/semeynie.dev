@@ -8,21 +8,6 @@ use frontend\assets\AppAsset;
 
 AppAsset::register($this);
 
-$_jsThefloorsBtn = <<<JS
-setTimeout(function() {
-  $("#widget-btn").hide();
-}, 800);
-$(window).scroll(function () {
-    if ((window.scrollY || window.pageYOffset) > $('.menu_btn_wrp').offset().top - 20) {
-        $("#widget-btn").show();
-    } else {
-        $("#widget-btn").hide();
-    }
-});
-JS;
-
-$this->registerJs($_jsThefloorsBtn);
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -41,16 +26,7 @@ $this->registerJs($_jsThefloorsBtn);
 <?php $this->beginBody() ?>
 <?= $this->render('_components/analytics/gtm-no-script') ?>
 
-<?= $this->render('@frontend/views/layouts/_header') ?>
-
-<div class="wrap_all">
-    <?= $content ?>
-    <?= $this->render('@frontend/views/layouts/_footer') ?>
-</div>
-
-<?= $this->render('@frontend/views/layouts/_components/modal-windows/blueimp') ?>
-<?= $this->render('@frontend/views/layouts/_components/modal-windows/popup') ?>
-<?= $this->render('@frontend/views/layouts/_components/modal-windows/ads') ?>
+<?= $content ?>
 
 <?php $this->endBody() ?>
 </body>
