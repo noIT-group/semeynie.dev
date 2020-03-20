@@ -2,17 +2,18 @@
 
 namespace backend\controllers;
 
+use common\models\InfrastructureCategory;
 use Yii;
-use backend\models\Document;
-use backend\models\DocumentSearch;
+use backend\models\InfrastructureObject;
+use backend\models\InfrastructureObjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DocumentController implements the CRUD actions for Document model.
+ * InfrastructureObjectController implements the CRUD actions for InfrastructureObject model.
  */
-class DocumentController extends Controller
+class InfrastructureObjectController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +31,12 @@ class DocumentController extends Controller
     }
 
     /**
-     * Lists all Document models.
+     * Lists all InfrastructureObject models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DocumentSearch();
+        $searchModel = new InfrastructureObjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $dataProvider->pagination = false;
@@ -43,17 +44,18 @@ class DocumentController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'infrastructureCategory' => InfrastructureCategory::getValue(),
         ]);
     }
 
     /**
-     * Creates a new Document model.
+     * Creates a new InfrastructureObject model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Document();
+        $model = new InfrastructureObject();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -61,11 +63,12 @@ class DocumentController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'infrastructureCategory' => InfrastructureCategory::getValue(),
         ]);
     }
 
     /**
-     * Updates an existing Document model.
+     * Updates an existing InfrastructureObject model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -75,19 +78,18 @@ class DocumentController extends Controller
     {
         $model = $this->findModel($id);
 
-	    $model->setScenario('update');
-
-	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'infrastructureCategory' => InfrastructureCategory::getValue(),
         ]);
     }
 
     /**
-     * Deletes an existing Document model.
+     * Deletes an existing InfrastructureObject model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -101,15 +103,15 @@ class DocumentController extends Controller
     }
 
     /**
-     * Finds the Document model based on its primary key value.
+     * Finds the InfrastructureObject model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Document the loaded model
+     * @return InfrastructureObject the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Document::findOne($id)) !== null) {
+        if (($model = InfrastructureObject::findOne($id)) !== null) {
             return $model;
         }
 

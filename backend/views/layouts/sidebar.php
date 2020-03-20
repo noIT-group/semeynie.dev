@@ -70,7 +70,8 @@ use yii\helpers\Html;
                     'template' => 'submenu',
                     'url' => ['#'],
                     'items' => [
-                        ['label' => 'Тестовый пункт', 'url' => ['#']],
+                        ['label' => 'Категории', 'url' => ['/infrastructure-category/index']],
+                        ['label' => 'Обьекты', 'url' => ['/infrastructure-object/index']],
                     ]
                 ],
                 [

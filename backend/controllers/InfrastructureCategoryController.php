@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Document;
-use backend\models\DocumentSearch;
+use backend\models\InfrastructureCategory;
+use backend\models\InfrastructureCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DocumentController implements the CRUD actions for Document model.
+ * InfrastructureCategoryController implements the CRUD actions for InfrastructureCategory model.
  */
-class DocumentController extends Controller
+class InfrastructureCategoryController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class DocumentController extends Controller
     }
 
     /**
-     * Lists all Document models.
+     * Lists all InfrastructureCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DocumentSearch();
+        $searchModel = new InfrastructureCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $dataProvider->pagination = false;
@@ -47,13 +47,13 @@ class DocumentController extends Controller
     }
 
     /**
-     * Creates a new Document model.
+     * Creates a new InfrastructureCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Document();
+        $model = new InfrastructureCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -65,7 +65,7 @@ class DocumentController extends Controller
     }
 
     /**
-     * Updates an existing Document model.
+     * Updates an existing InfrastructureCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -75,9 +75,7 @@ class DocumentController extends Controller
     {
         $model = $this->findModel($id);
 
-	    $model->setScenario('update');
-
-	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
@@ -87,7 +85,7 @@ class DocumentController extends Controller
     }
 
     /**
-     * Deletes an existing Document model.
+     * Deletes an existing InfrastructureCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -101,15 +99,15 @@ class DocumentController extends Controller
     }
 
     /**
-     * Finds the Document model based on its primary key value.
+     * Finds the InfrastructureCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Document the loaded model
+     * @return InfrastructureCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Document::findOne($id)) !== null) {
+        if (($model = InfrastructureCategory::findOne($id)) !== null) {
             return $model;
         }
 
