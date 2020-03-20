@@ -1,7 +1,11 @@
 <?php
 namespace backend\controllers;
 
+use common\models\settings\AboutDeveloperProjectSettings;
 use common\models\settings\AboutDeveloperSettings;
+use common\models\settings\AboutProjectSettings;
+use common\models\settings\FeaturesSettings;
+use common\models\settings\InstallmentApartmentSettings;
 use common\models\settings\NavigationMenuSettings;
 use common\models\settings\SiteConfigSettings;
 use common\models\settings\SocialGroupSettings;
@@ -31,6 +35,66 @@ class SettingsController extends Controller
                 'path' => Yii::getAlias('@cdn/settings/body'),
             ],
         ];
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionAboutProjectSettings()
+    {
+        $model = new AboutProjectSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('about-project-settings', ['model' => $model]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionInstallmentApartmentSettings()
+    {
+        $model = new InstallmentApartmentSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('installment-apartment-settings', ['model' => $model]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionFeaturesSettings()
+    {
+        $model = new FeaturesSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('features-settings', ['model' => $model]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionAboutDeveloperProjectSettings()
+    {
+        $model = new AboutDeveloperProjectSettings();
+
+        if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            $model->save();
+            return $this->refresh();
+        }
+
+        return $this->render('about-developer-project-settings', ['model' => $model]);
     }
 
     /**
