@@ -64,12 +64,15 @@ use yii\helpers\Html;
                     'template' => 'single',
                     'url' => ['/genplan/index'],
                 ],
-//                [
-//                    'label' => 'Выбрать квартиру',
-//                    'icon' => 'fa fa-at',
-//                    'template' => 'single',
-//                    'url' => ['#'],
-//                ],
+                [
+                    'label' => 'Инфраструктура',
+                    'icon' => 'fa fa-at',
+                    'template' => 'submenu',
+                    'url' => ['#'],
+                    'items' => [
+                        ['label' => 'Тестовый пункт', 'url' => ['#']],
+                    ]
+                ],
                 [
                     'label' => 'О застройщике',
                     'icon' => 'fab fa-fort-awesome',
