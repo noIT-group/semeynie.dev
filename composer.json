@@ -36,7 +36,11 @@
         "zxbodya/yii2-gallery-manager": "*@dev",
         "kartik-v/yii2-widget-depdrop": "@dev",
         "kartik-v/yii2-popover-x": "dev-master",
-        "voskobovich/yii2-linker-behavior": "^4.0"
+        "voskobovich/yii2-linker-behavior": "^4.0",
+        "ext-json": "^1.5",
+        "ext-curl": "*",
+        "codemix/yii2-localeurls": "^1.7",
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -1,4 +1,5 @@
 <?php
+
 namespace noIT\seo\helpers;
 
 use Yii;

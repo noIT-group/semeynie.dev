@@ -1,4 +1,7 @@
 <?php
+
+use noIT\seo\helpers\RedirectHelper;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -9,14 +12,21 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log', 'languages'],
-    'language' => 'ru_ru',
+    'bootstrap' => ['log'],
+    'language' => 'ua',
     'controllerNamespace' => 'frontend\controllers',
+    'on beforeRequest' => function () {
+        RedirectHelper::beforeRequest();
+    },
     'components' => [
         'request' => [
-            'class' => 'common\components\Request', // custom
             'baseUrl' => '',
             'csrfParam' => '_csrf-frontend',
+        ],
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'i18n' => [
             'class' => 'yii\i18n\I18N',
@@ -29,11 +39,6 @@ return [
                     ],
                 ],
             ],
-        ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
             'name' => 'advanced-frontend',
@@ -51,10 +56,15 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'class' => 'common\components\UrlManager',  // custom
+            'class' => 'noIT\UrlManager',
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => require (__DIR__ . '/routes.php'),
+            'enableDefaultLanguageUrlCode' => false,
+            'enableLanguageDetection' => false,
+            'enableLanguagePersistence' => false,
+            'rules' => require(__DIR__ . '/routes.php'),
+            'languages' => ['ua', 'ru'],
         ],
         'assetManager' => [
             'bundles' => [
@@ -74,17 +84,6 @@ return [
         ],
         'languageHelper' => [
             'class' => 'frontend\components\LanguageHelper'
-        ],
-    ],
-    'modules' => [
-        'languages' => [
-            'class' => 'common\modules\languages\Module',  // custom
-            'languages' => [
-                'ru' => 'ru',
-                'ua' => 'ua',
-            ],
-            'default_language' => 'ru',
-            'show_default' => false,
         ],
     ],
     'params' => $params,
