@@ -46,6 +46,7 @@ return [
                 'role' => 'noIT\auth\controllers\RoleController',
                 'permission' => 'noIT\auth\controllers\PermissionController',
                 'rule' => 'noIT\auth\controllers\RuleController',
+                'security' => 'noIT\auth\controllers\SecurityController',
             ],
         ],
         'gridview' =>  [

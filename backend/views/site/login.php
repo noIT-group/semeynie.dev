@@ -1,61 +1,65 @@
 <?php
 
 /**
- * @var $this yii\web\View
- * @var $form yii\bootstrap\ActiveForm
- * @var $model \backend\models\LoginForm
- * @var $resetModel \backend\models\PasswordResetRequestForm
+ * @var yii\web\View
+ * @var \Da\User\Form\LoginForm $model
+ * @var \Da\User\Module         $module
  */
 
-use yii\helpers\Url;
+use Da\User\Widget\ConnectWidget;
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\widgets\ActiveForm;
 
-$this->title = Yii::t('app', 'Login');
+$this->title = Yii::t('usuario', 'Sign in');
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="m-login__signin">
-    <div class="m-login__logo">
-        <a href="#">
-            <img src="<?= Url::to('@web/images/noitclean.png')?>">
-        </a>
-    </div>
-    <div class="m-login__head">
-        <h3 class="m-login__title"><?= Yii::t('app', 'Enter to the admin-panel')?></h3>
-    </div>
-    <?= \backend\widgets\MetronicAlert::widget()?>
-    <?php $form = ActiveForm::begin(['id' => 'login-form', 'options' => ['class' => 'm-login__form m-form']]); ?>
-    <div class="form-group m-form__group">
-        <?= Html::activeInput('text', $model, 'username', ['class' => 'form-control m-input', 'placeholder' => Yii::t('app', 'Username'), 'autocomplete' => 'off'])?>
-    </div>
-    <div class="form-group m-form__group">
-        <?= Html::activeInput('password', $model, 'password', ['class' => 'form-control m-input m-login__form-input--last', 'placeholder' => Yii::t('app', 'Password'), 'autocomplete' => 'off'])?>
-    </div>
-    <div class="row m-login__form-sub">
-        <div class="col m--align-left">
-            <label class="m-checkbox m-checkbox--focus">
-                <?= Html::activeCheckbox($model, 'rememberMe', ['label' => false])?> <?= Yii::t('app', 'Remember me')?>
-                <span></span>
-            </label>
+
+<?= $this->render('/shared/_alert', ['module' => Yii::$app->getModule('user')]) ?>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?= Html::encode($this->title) ?></h3>
+            </div>
+            <div class="panel-body">
+                <?php $form = ActiveForm::begin(
+                    [
+                        'id' => $model->formName(),
+                        'enableAjaxValidation' => true,
+                        'enableClientValidation' => false,
+                        'validateOnBlur' => false,
+                        'validateOnType' => false,
+                        'validateOnChange' => false,
+                    ]
+                ) ?>
+
+                <?= $form->field(
+                    $model,
+                    'login',
+                    ['inputOptions' => ['autofocus' => 'autofocus', 'class' => 'form-control', 'tabindex' => '1']]
+                ) ?>
+
+                <?= $form
+                    ->field(
+                        $model,
+                        'password',
+                        ['inputOptions' => ['class' => 'form-control', 'tabindex' => '2']]
+                    )
+                    ->passwordInput()
+                    ->label(Yii::t('usuario', 'Password')) ?>
+
+                <?= $form->field($model, 'rememberMe')->checkbox(['tabindex' => '4']) ?>
+
+                <?= Html::submitButton(
+                    Yii::t('usuario', 'Sign in'),
+                    ['class' => 'btn btn-primary btn-block', 'tabindex' => '3']
+                ) ?>
+
+                <?php ActiveForm::end(); ?>
+            </div>
         </div>
-        <div class="col m--align-right">
-            <a href="javascript:;" id="m_login_forget_password" class="m-link"><?= Yii::t('app', 'Forget Password?')?></a>
-        </div>
-    </div>
-    <div class="m-login__form-action">
-        <button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air"><?= Yii::t('app', 'Login')?></button>
-    </div>
-    <?php ActiveForm::end(); ?>
-</div>
-<div class="m-login__signup">
-    <div class="m-login__head">
-        <h3 class="m-login__title">Sign Up</h3>
-        <div class="m-login__desc">Enter your details to create your account:</div>
-    </div>
-</div>
-<div class="m-login__forget-password">
-    <div class="m-login__head">
-        <h3 class="m-login__title"><?= Yii::t('app', 'Forgotten Password?')?></h3>
-        <div class="m-login__desc"><?= Yii::t('app', 'Enter your email to reset your password')?>:</div>
+        <?= ConnectWidget::widget(['baseAuthUrl' => ['/user/security/auth']]) ?>
     </div>
 </div>
