@@ -9,19 +9,13 @@ use yii\web\View;
 
 ?>
 <?php if ($list) : ?>
-    <div class="sidenav__language">
-        <ul>
-            <?php foreach ($list as $list_item) : ?>
-                <?php if ($list_item['selected']) : ?>
-                    <li>
-                        <span><?= $list_item['label'] ?></span>
-                    </li>
-                <?php else : ?>
-                    <li>
-                        <a href="<?= $list_item['url'] ?>"><?= $list_item['label'] ?></a>
-                    </li>
-                <?php endif ?>
-            <?php endforeach ?>
-        </ul>
+    <div class="lang">
+        <?php foreach ($list as $list_item) : ?>
+            <?php if ($list_item['selected']) : ?>
+                <span class="lang__link active"><?= $list_item['label'] ?></span>
+            <?php else : ?>
+                <a href="<?= $list_item['url'] ?>" class="lang__link"><?= $list_item['label'] ?></a>
+            <?php endif ?>
+        <?php endforeach ?>
     </div>
 <?php endif ?>

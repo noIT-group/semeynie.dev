@@ -68,9 +68,9 @@ class LanguageWidget extends Widget
     private static function setLabel($languageCode)
     {
         if ($languageCode == 'ru') {
-            return 'рус';
+            return 'ru';
         } else if ($languageCode === 'ua') {
-            return 'укр';
+            return 'ukr';
         } else {
             return '-';
         }

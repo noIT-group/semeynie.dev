@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon/icomoon.eot?ancjsa');
+    src:  url('../fonts/icomoon/icomoon.eot?ancjsa#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon/icomoon.ttf?ancjsa') format('truetype'),
+        url('../fonts/icomoon/icomoon.woff?ancjsa') format('woff'),
+        url('../fonts/icomoon/icomoon.svg?ancjsa#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e90c";
+}
+.icon-arrow-back:before {
+  content: "\e90d";
+}
+.icon-about-after:before {
+    content: "\e900";
+}
+.icon-arrow:before {
+    content: "\e901";
+}
+.icon-click:before {
+    content: "\e902";
+    color: #bcab8c;
+}
+.icon-facebook:before {
+    content: "\e903";
+}
+.icon-infostruct-after:before {
+    content: "\e904";
+    color: #4c5151;
+}
+.icon-insta:before {
+    content: "\e905";
+}
+.icon-nastroiki:before {
+    content: "\e906";
+}
+.icon-phone:before {
+    content: "\e907";
+    color: #d3c09f;
+}
+.icon-project-after:before {
+    content: "\e908";
+    color: #4c5151;
+}
+.icon-sad-before:before {
+    content: "\e909";
+    color: #4c5151;
+}
+.icon-youtube:before {
+    content: "\e90a";
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1715" height="956" viewBox="0 0 1715 956">
+<defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #d669ff;
+      }
+
+      .cls-3 {
+        fill: #cc84ff;
+      }
+
+      .cls-4 {
+        fill: #d674ff;
+      }
+
+      .cls-5 {
+        fill: #b865fe;
+      }
+    </style>
+  </defs>
+    <a href="#"> <path id="генплан" class="cls-1" d="M702,713L641,336l535-104L1048,712Z"/></a>
+    <a href="#"><path id="Секция_3" data-name="Секция 3" class="cls-2" d="M719,654V506h71v66h6v53h-6v55h-7v20H732V682h-7V654h-6Z"/></a>
+    <a href="#"><path id="Секция_4" data-name="Секция 4" class="cls-3" d="M1054,654V506H983v66h-6v53h7v55h6v20h51V682h7V654h6Z"/></a>
+  <path id="Секция_2" data-name="Секция 2" class="cls-4" d="M888,365h82l24,24,2-2,15,15-5,5,13,13,3-2,26,25v59H984V485l-17-17-3,2-20-19,3-3-16-15H888V365Z"/>
+  <path id="Секция_1" data-name="Секция 1" class="cls-5" d="M885,365H802.488l-24.15,24-2.013-2-15.094,15,5.032,5-13.082,13-3.018-2L724,443v59h64.4V485l17.106-17,3.019,2,20.125-19-3.019-3,16.1-15H885V365Z"/>
+</svg>

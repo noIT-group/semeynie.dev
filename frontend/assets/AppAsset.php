@@ -13,9 +13,12 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
+        'css/icomoon.css',
+        'css/main.min.css',
     ];
 
     public $js = [
+        'js/common.js',
     ];
 
     public $depends = [

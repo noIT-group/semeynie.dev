@@ -1,0 +1,32 @@
+
+.ZoomCrop-viewport
+{
+	cursor: move;
+	overflow: hidden;
+}
+
+.ZoomCrop-slider
+{
+	position: absolute !important;
+	bottom: 5%;
+	z-index: 500;
+	background: black;
+	cursor: default;
+	
+	transition: opacity .5s ease-out;
+	-moz-transition: opacity .5s ease-out;
+	-webkit-transition: opacity .5s ease-out;
+	-o-transition: opacity .5s ease-out;
+}
+
+
+.ZoomCrop-slider .ui-slider-handle
+{
+	border: 1px solid black;
+	outline: 0;
+}
+
+.ZoomCrop-dragcontainer
+{
+	position: relative;
+}

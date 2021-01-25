@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Constantia';
+  src: url('Constantia.svg#Constantia') format('svg'),
+       url('Constantia.ttf') format('truetype'),
+       url('Constantia.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'constan';
+  src: url('constan.eot');
+  src: url('constan.eot?#iefix') format('embedded-opentype'),
+       url('constan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

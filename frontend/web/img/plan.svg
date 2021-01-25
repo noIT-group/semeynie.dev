@@ -1,0 +1,47 @@
+<svg id="Проданные_квартиры_чб" data-name="Проданные квартиры_чб" xmlns="http://www.w3.org/2000/svg" width="1246" height="500" viewBox="0 0 1246 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #fff;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #f6f6f4;
+      }
+
+      .cls-1 {
+        mix-blend-mode: hue;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-opacity: 0.1;
+        opacity: .1
+      }
+
+      .cls-3, .cls-4 {
+        stroke-linejoin: round;
+      }
+
+      .cls-4 {
+        stroke: #d8e5f3;
+      }
+    </style>
+  </defs>
+  <path id="_21" data-name="21" class="cls-1" d="M624,170V4L827,32,813,218l-100-2V171Z"/>
+  <path id="_22" data-name="22" class="cls-1" d="M937,226L820,214,835,32l130-6Z"/>
+  <path id="_23" data-name="23" class="cls-1" d="M946,228L973,31l126,42,133,6-46,193Z"/>
+  <path id="_10" data-name="10" class="cls-1" d="M1053,484l43-182,78,19-43,170Z"/>
+  <path id="_12" data-name="12" class="cls-1" d="M695,453l-1-141,63,1V262h67V438Z"/>
+  <path id="_13" data-name="13" class="cls-1" d="M556,451l-1-140,136,1V452l-68,6Z"/>
+  <path id="_14" data-name="14" class="cls-1" d="M423,438l-1-176h67v50l63,1V453Z"/>
+  <path id="_16" data-name="16" class="cls-1" d="M115,488L72,321l78-19,44,180Z"/>
+  <path id="_19" data-name="19" class="cls-1" d="M309,226L282,30l129,4,16,179Z"/>
+  <path id="_25" data-name="25" class="cls-2" d="M913,459l48-183,133,24-46,183-68-5Z"/>
+  <path id="_17" data-name="17" class="cls-3" d="M59,277L8,76l140-5,32,175Z"/>
+  <path id="_15" data-name="15" class="cls-2" d="M197,483L149,302l135-26,48,183-64,18Z"/>
+  <path id="_18" data-name="18" class="cls-4" d="M279,27l28,203L182,247,147,69Z"/>
+  <path id="_20" data-name="20" class="cls-4" d="M431,218L417,30,623,1l1,168-91,2-1,45Z"/>
+</svg>

@@ -26,4 +26,3 @@ $this->title = Yii::$app->response->statusCode . ' ' . Yii::t('app', 'error__lab
         </div><a class="ni-error-main__btn" href="<?= Url::to(['site/index']) ?>"><?= Yii::t('app', 'home_page__button_txt') ?></a>
     </div>
 </div>
-

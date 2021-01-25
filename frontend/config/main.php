@@ -13,7 +13,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language' => 'ua',
+    'language' => 'ru',
     'controllerNamespace' => 'frontend\controllers',
     'on beforeRequest' => function () {
         RedirectHelper::beforeRequest();
@@ -67,13 +67,15 @@ return [
             'languages' => ['ua', 'ru'],
         ],
         'assetManager' => [
+            'appendTimestamp' => true,
             'bundles' => [
                 'yii\web\JqueryAsset' => [
                     'sourcePath' => null,
                     'basePath' => '@webroot',
                     'baseUrl' => '@web',
                     'js' => [
-                        'js/jquery-3.4.1.min.js',
+                        'js/scripts.min.js',
+                        'js/input.mask.js',
                         'https://cdn.jsdelivr.net/npm/sweetalert2@8',
                     ]
                 ]

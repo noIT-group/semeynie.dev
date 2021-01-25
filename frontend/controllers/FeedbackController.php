@@ -1,10 +1,8 @@
 <?php
+
 namespace frontend\controllers;
 
-use common\models\ConsultationFeedback;
 use common\models\Feedback;
-use common\models\RecallFeedback;
-use common\models\Subscribe;
 use Yii;
 use yii\db\Exception;
 use yii\web\NotFoundHttpException;

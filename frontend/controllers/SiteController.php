@@ -1,16 +1,12 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
-use common\models\ConstructionProgress;
-use common\models\Gallery;
-use common\models\MultiGallery;
-use common\models\settings\TerracesSectionSettings;
 use yii\web\Controller;
 
 class SiteController extends Controller
 {
-
     /**
      * {@inheritdoc}
      */
@@ -24,27 +20,12 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
-        $lang = Yii::$app->language;
-
-        $data = [
-            'ru' => [
-                'title' => "Семейные Традиции",
-                'description' => "",
-            ],
-            'ua' => [
-                'title' => "",
-                'description' => "Сімейні традиції",
-            ],
-        ];
-
-        $this->view->title = $data[$lang]['title'];
-
-        $this->view->registerMetaTag([
-            'name' => 'description',
-            'content' => $data[$lang]['description'],
-        ]);
+        Yii::$app->view->params['body__class'] = 'home page static';
 
         return $this->render('index', []);
     }
@@ -54,16 +35,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        $data = [
-            'ru' => [
-                'title' => "О застройщике",
-            ],
-            'ua' => [
-                'title' => "Про забудовника",
-            ],
-        ];
-
-        $this->view->title = $data[Yii::$app->language]['title'];
+        Yii::$app->view->params['body__class'] = 'developer page static';
 
         return $this->render('about');
     }
@@ -73,16 +45,7 @@ class SiteController extends Controller
      */
     public function actionGenplan()
     {
-        $data = [
-            'ru' => [
-                'title' => "Генплан",
-            ],
-            'ua' => [
-                'title' => "Генплан",
-            ],
-        ];
-
-        $this->view->title = $data[Yii::$app->language]['title'];
+        Yii::$app->view->params['body__class'] = 'genplan page';
 
         return $this->render('genplan');
     }
@@ -90,37 +53,9 @@ class SiteController extends Controller
     /**
      * @return string
      */
-    public function actionChoose()
-    {
-        $data = [
-            'ru' => [
-                'title' => "Выбрать квартиру",
-            ],
-            'ua' => [
-                'title' => "Вибрати квартиру",
-            ],
-        ];
-
-        $this->view->title = $data[Yii::$app->language]['title'];
-
-        return $this->render('choose');
-    }
-
-    /**
-     * @return string
-     */
     public function actionGallery()
     {
-        $data = [
-            'ru' => [
-                'title' => "Галерея",
-            ],
-            'ua' => [
-                'title' => "Галерея",
-            ],
-        ];
-
-        $this->view->title = $data[Yii::$app->language]['title'];
+        Yii::$app->view->params['body__class'] = 'gallery page static';
 
         return $this->render('gallery');
     }
@@ -130,16 +65,7 @@ class SiteController extends Controller
      */
     public function actionContacts()
     {
-        $data = [
-            'ru' => [
-                'title' => "Контакты",
-            ],
-            'ua' => [
-                'title' => "Контакти",
-            ],
-        ];
-
-        $this->view->title = $data[Yii::$app->language]['title'];
+        Yii::$app->view->params['body__class'] = 'contact page static';
 
         return $this->render('contact');
     }
