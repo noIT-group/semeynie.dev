@@ -10,7 +10,7 @@ $__params = require __DIR__ .'/__params.php';
 
 $this->title = $model->name_ru;
 $this->params['breadcrumbs'][] = ['label' => 'Инфраструктура'];
-$this->params['breadcrumbs'][] = ['label' => 'Инфраструктура', 'url' => ['infrastructure-category/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['infrastructure-category/index']];
 $this->params['breadcrumbs'][] = ['label' => $__params['update'], 'url' => ['infrastructure-category/update', 'id' => $model->id]];
 
 ?>

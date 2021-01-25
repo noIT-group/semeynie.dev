@@ -34,6 +34,14 @@ $columns = [
         }
     ],
     [
+        'attribute' => 'svg_icon',
+        'format' => 'raw',
+        'value' => function($model) {
+            $label = InfrastructureCategory::getIconLabel($model->svg_icon);
+            return Html::a($label, ['update', 'id' => $model->id]);
+        }
+    ],
+    [
         'attribute' => 'sort_order',
         'format' => 'raw',
         'label' => 'Порядок вывода',

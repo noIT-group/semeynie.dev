@@ -2,6 +2,7 @@
 
 use backend\widgets\MetronicBoostrapSelect;
 use backend\widgets\MetronicSingleCheckbox;
+use common\models\InfrastructureCategory;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -24,11 +25,12 @@ $languages = Yii::$app->languageHelper->getLanguages();
     <?php endforeach ?>
 </div>
 
-<hr>
-
 <div class="row justify-content-between">
     <div class="col like-box">
-        <?= $form->field($model, 'svg_icon')->textarea(['rows' => 6]) ?>
+        <?= $form->field($model, 'svg_icon')->widget(MetronicBoostrapSelect::className(), [
+            'items' => InfrastructureCategory::getAllIcon(),
+            'prompt' => 'Выберите иконку',
+        ])?>
     </div>
 </div>
 

@@ -13,7 +13,7 @@ class InfrastructureCategory extends \common\models\InfrastructureCategory
             'id' => 'ID',
             'name_ru' => 'Название (RU)',
             'name_ua' => 'Название (UA)',
-            'svg_icon' => 'SVG иконка',
+            'svg_icon' => 'Тип иконки',
             'status' => 'Статус',
             'sort_order' => 'Порядок сортировки',
         ];
