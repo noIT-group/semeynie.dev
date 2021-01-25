@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['settings/n
                         'allowEmptyList' => true,
                         'enableGuessTitle' => false,
                         'sortable' => true,
-                        'max' => 4,
                         'addButtonPosition' => MultipleInput::POS_FOOTER,
                         'columns' => [
                             [
@@ -46,7 +45,6 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['settings/n
                         'allowEmptyList' => true,
                         'enableGuessTitle' => false,
                         'sortable' => true,
-                        'max' => 4,
                         'addButtonPosition' => MultipleInput::POS_FOOTER,
                         'columns' => [
                             [
@@ -68,7 +66,6 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['settings/n
                         'allowEmptyList' => true,
                         'enableGuessTitle' => false,
                         'sortable' => true,
-                        'max' => 4,
                         'addButtonPosition' => MultipleInput::POS_FOOTER,
                         'columns' => [
                             [
