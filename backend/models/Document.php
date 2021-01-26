@@ -14,7 +14,7 @@ class Document extends \common\models\Document
             'name_ru' => 'Название (RU)',
             'name_ua' => 'Название (UA)',
             'image' => 'Изображение',
-            'file' => 'Файл',
+//            'file' => 'Файл',
             'status' => 'Статус',
             'sort_order' => 'Порядок вывода',
         ];

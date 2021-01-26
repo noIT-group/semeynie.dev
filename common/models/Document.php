@@ -14,7 +14,7 @@ use Imagine\Image\ManipulatorInterface;
  * @property string $name_ru
  * @property string $name_ua
  * @property string $image
- * @property string $file
+// * @property string $file
  * @property int $status
  * @property int $sort_order
  * @property int $created_at
@@ -48,7 +48,7 @@ class Document extends \yii\db\ActiveRecord
             [['image'], 'image', 'skipOnEmpty' => false, 'on' => ['default']],
             [['image'], 'image', 'skipOnEmpty' => true, 'on' => ['update']],
 
-            [['file'], 'file', 'skipOnEmpty' => true, 'on' => ['default', 'update']],
+            //[['file'], 'file', 'skipOnEmpty' => true, 'on' => ['default', 'update']],
         ];
     }
 
@@ -84,16 +84,16 @@ class Document extends \yii\db\ActiveRecord
                         'path' => '@cdn/document/{id}',
                         'url' => '@cdnUrl/document/{id}',
                     ],
-                    'file' => [
-                        'class' => UploadImageBehavior::className(),
-                        'createThumbsOnSave' => true,
-                        'createThumbsOnRequest' => true,
-                        'generateNewName' => true,
-                        'attribute' => 'file',
-                        'scenarios' => ['default'],
-                        'path' => '@cdn/document/{id}',
-                        'url' => '@cdnUrl/document/{id}',
-                    ],
+//                    'file' => [
+//                        'class' => UploadImageBehavior::className(),
+//                        'createThumbsOnSave' => true,
+//                        'createThumbsOnRequest' => true,
+//                        'generateNewName' => true,
+//                        'attribute' => 'file',
+//                        'scenarios' => ['default'],
+//                        'path' => '@cdn/document/{id}',
+//                        'url' => '@cdnUrl/document/{id}',
+//                    ],
                 ],
             ],
         ];

@@ -16659,12 +16659,11 @@ input[type=range].my-image-range::-ms-thumb {
     height: 20px;
     cursor: pointer;
     width: 1px;
-    margin-left: 12px;
     background-color: #939393;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-    Z-index: 1;
+    Z-index: 9999;
     -webkit-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s

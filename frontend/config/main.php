@@ -64,7 +64,7 @@ return [
             'enableLanguageDetection' => false,
             'enableLanguagePersistence' => false,
             'rules' => require(__DIR__ . '/routes.php'),
-            'languages' => ['ua', 'ru'],
+            'languages' => ['ru', 'ua'],
         ],
         'assetManager' => [
             'appendTimestamp' => true,
@@ -84,8 +84,8 @@ return [
         'siteSettingsComponent' => [
             'class' => 'frontend\components\SiteSettingsComponent'
         ],
-        'languageHelper' => [
-            'class' => 'frontend\components\LanguageHelper'
+        'settingsLanguageGetter' => [
+            'class' => 'frontend\components\SettingsLanguageGetter',
         ],
     ],
     'params' => $params,

@@ -2,6 +2,13 @@
 
 namespace frontend\controllers;
 
+use frontend\models\AboutDeveloperSettings;
+use frontend\models\AboutProjectSettings;
+use frontend\models\DeveloperObject;
+use frontend\models\Document;
+use frontend\models\Gallery;
+use frontend\models\InstallmentApartmentSettings;
+use frontend\models\MultiSlider;
 use Yii;
 use yii\web\Controller;
 
@@ -27,7 +34,38 @@ class SiteController extends Controller
     {
         Yii::$app->view->params['body__class'] = 'home page static';
 
-        return $this->render('index', []);
+        $homeSliderModels = MultiSlider::find()
+            ->where([
+                'type' => MultiSlider::HOME_TYPE,
+                'status' => MultiSlider::STATUS_ENABLE,
+            ])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        $aboutProjectSettings = AboutProjectSettings::getAll();
+
+        $installmentApartmentSettings = InstallmentApartmentSettings::getAll();
+
+        $aboutDeveloperSettings = AboutDeveloperSettings::getAll();
+
+        $documentModels = Document::find()
+            ->where(['status' => Document::STATUS_ENABLE])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        $developerObjectModels = DeveloperObject::find()
+            ->where(['status' => DeveloperObject::STATUS_ENABLE])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        return $this->render('index', [
+            'homeSliderModels' => $homeSliderModels,
+            'aboutProjectSettings' => $aboutProjectSettings,
+            'installmentApartmentSettings' => $installmentApartmentSettings,
+            'aboutDeveloperSettings' => $aboutDeveloperSettings,
+            'documentModels' => $documentModels,
+            'developerObjectModels' => $developerObjectModels,
+        ]);
     }
 
     /**
@@ -37,7 +75,20 @@ class SiteController extends Controller
     {
         Yii::$app->view->params['body__class'] = 'developer page static';
 
-        return $this->render('about');
+        $documentModels = Document::find()
+            ->where(['status' => Document::STATUS_ENABLE])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        $developerObjectModels = DeveloperObject::find()
+            ->where(['status' => DeveloperObject::STATUS_ENABLE])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        return $this->render('about', [
+            'documentModels' => $documentModels,
+            'developerObjectModels' => $developerObjectModels,
+        ]);
     }
 
     /**
@@ -57,7 +108,12 @@ class SiteController extends Controller
     {
         Yii::$app->view->params['body__class'] = 'gallery page static';
 
-        return $this->render('gallery');
+        $models = Gallery::find()
+            ->where(['status' => Gallery::STATUS_ENABLE])
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
+
+        return $this->render('gallery', ['models' => $models]);
     }
 
     /**

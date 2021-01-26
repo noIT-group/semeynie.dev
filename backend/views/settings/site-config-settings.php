@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['settings/s
 
             </div>
 
-            <div class="row justify-content-between">
+            <div class="row justify-content-between" style="display:none;">
                 <div class="col like-box">
                     <?= $form->field($model, 'work_time')->textInput(['maxlength' => true]) ?>
                 </div>

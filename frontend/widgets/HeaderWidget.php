@@ -2,6 +2,7 @@
 
 namespace frontend\widgets;
 
+use frontend\models\NavigationMenuSettings;
 use yii\base\Widget;
 
 class HeaderWidget extends Widget
@@ -11,6 +12,10 @@ class HeaderWidget extends Widget
      */
     public function run()
     {
-        return $this->render('header');
+        $navigationMenuSettings = NavigationMenuSettings::getAll();
+
+        return $this->render('header', [
+            'navigationMenuSettings' => $navigationMenuSettings,
+        ]);
     }
 }

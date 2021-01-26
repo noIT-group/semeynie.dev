@@ -1,15 +1,28 @@
+<?php
+
+/**
+ * @var $this View
+ */
+
+use frontend\widgets\SocialNetworkWidget;
+use yii\web\View;
+
+$this->title = Yii::t('app', 'genplan_txt');
+
+?>
 <section class="hero fix">
     <div class="hero__inner">
-        <div class="hero-menu">
-            <a href="#" class="hero-menu__link"><i class="icon icon-facebook"></i></a>
-            <a href="#" class="hero-menu__link"><i class="icon icon-insta"></i></a>
-            <a href="#" class="hero-menu__link"><i class="icon icon-youtube"></i></a>
-        </div>
+
+        <?= SocialNetworkWidget::widget(['view_type' => SocialNetworkWidget::VIEW_TYPE_SIDEBAR]) ?>
+
         <div class="genplan__wrap">
-            <span class="title">Генплан</span>
+
+            <span class="title"><?= Yii::t('app', 'genplan_txt') ?></span>
+
             <div class="genplan__inner">
+
                 <div class="my-image-box">
-                    <img class="my-image" src="/img/genplan-big.jpg" />
+                    <img class="my-image" src="/img/genplan-big.jpg">
                     <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1715 956" preserveAspectRatio="xMidYMid slice">
                         <g class="svg__path" >
                             <polygon class="svg__polygon" points="1008.08,435.54 955.16,678.94 774.31,676.1 748.83,488.19 "></polygon>
@@ -69,15 +82,19 @@
                         </a>
                     </svg>
                 </div>
+
                 <div class="range__wrap">
                     <div class="range__title">Масштаб</div>
-                    <input type="range" name="" min="0.8" max="1.8" step="0.5" id="" class="my-image-range">
+                    <input type="range" min="0.8" max="1.8" step="0.5" id="" class="my-image-range">
                     <div class="range-plus">+</div>
                     <div class="range-minus">-</div>
                 </div>
+
                 <div class="range__wrap_mob">
                     <img src="/img/range__wrap_mob.svg">
                 </div>
+
             </div>
         </div>
+
 </section>

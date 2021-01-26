@@ -1,6 +1,6 @@
 <div class="modal">
     <div class="remodal" data-remodal-id="modal__more">
-        <button data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
+        <button type="button" data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
         <div class="modal__form">
             <form action="#">
                 <input type="text" placeholder="Ваше имя*" class="modal__input" name="name">
@@ -13,7 +13,7 @@
 
 <div class="modal">
     <div class="remodal" data-remodal-id="modal__thanks">
-        <button data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
+        <button type="button" data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
         <div class="modal__content">
             <div class="check">
                 <div id="check-part-1" class="check__sign"></div>

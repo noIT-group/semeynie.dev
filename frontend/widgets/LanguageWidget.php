@@ -70,7 +70,7 @@ class LanguageWidget extends Widget
         if ($languageCode == 'ru') {
             return 'ru';
         } else if ($languageCode === 'ua') {
-            return 'ukr';
+            return 'ua';
         } else {
             return '-';
         }

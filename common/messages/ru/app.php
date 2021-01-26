@@ -1,29 +1,48 @@
 <?php
 return [
-    'January' => ' Январь',
-    'February' => 'Февраль',
-    'March' => 'Март',
-    'April' => 'Апрель',
-    'May' => 'Май',
-    'June' => 'Июнь',
-    'July' => 'Июль',
-    'August' => 'Август',
-    'September' => 'Сентябрь',
-    'October' => 'Октябрь',
-    'November' => 'Ноябрь',
-    'December' => 'Декабрь',
 
-    'home_page__button_txt' => 'Главная страница',
+    'logotype_note_txt' => 'Новый семейный жилой комплекс в центре Таирова',
 
-    'thank_you__label' => 'Спасибо',
-    'success__message' => "Ваше сообщение успешно отправлено.<br>Мы свяжемся с вами<br>в ближайшее рабочее время.",
+    'logotype_company_txt' => 'Семейные Традиции - Жилой комплекс',
+    'about_us_txt' => 'О застройщике',
+    'gallery_txt' => 'Галерея',
+    'genplan_txt' => 'Генплан',
 
-    'error__label' => 'Ошибка',
-    'error__message' => 'При отправке данных произошла ошибка. Возможно был сбой доступа к Интернету или прочая ошибка.',
+    'contact_txt' => 'Контакты',
 
-    'form_your_name' => 'Ваше имя',
-    'form_your_message' => 'Ваше сообщение',
-    'form_submit_send__button_txt' => 'Отправить',
-    'form_submit_more__button_txt' => 'Подробнее',
-    'form_submit_subscribe__button_txt' => 'Подписаться',
+    'about_project_txt' => 'О проекте',
+
+    'sale_department_label' => 'Контакты отдела продаж',
+
+    'write_us_txt' => 'Напишите нам',
+
+    'submit_txt' => 'Отправить',
+
+    'form_name_txt' => 'Ваше имя',
+    'form_phone_txt' => 'Номер телефона',
+    'form_message_txt' => 'Ваше сообщение',
+
+    'select_flat_txt' => 'выбрать квартиру',
+    'select_from_genplan_txt' => 'выбрать с генплана',
+
+    'search_by_params_txt' => 'поиск по параметрам',
+
+    'watch_gallery_txt' => 'смотреть галерею',
+
+    'document_txt' => 'Документы',
+    'another_developer_project_txt' => 'Другие проекты застройщика',
+
+    'developer_projects_txt' => 'Проекты застройщика',
+
+    'go_to_website_txt' => "На сайт {value}",
+
+    'know_more_txt' => 'узнать больше',
+
+    'show_on_map_txt' => 'Показать на карте',
+
+    'summary_txt' => 'Описание',
+    'infrastructure_txt' => 'Инфраструктура',
+
+    'get_consultation_txt' => 'получить консультацию',
+
 ];

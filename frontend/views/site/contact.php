@@ -1,12 +1,22 @@
+<?php
+
+/**
+ * @var $this View
+ */
+
+use frontend\widgets\SocialNetworkWidget;
+use yii\web\View;
+
+$this->title = Yii::t('app', 'contact_txt');
+
+?>
 <section class="hero fix">
     <div class="hero__inner">
-        <div class="hero-menu">
-            <a href="#" class="hero-menu__link"><i class="icon icon-facebook"></i></a>
-            <a href="#" class="hero-menu__link"><i class="icon icon-insta"></i></a>
-            <a href="#" class="hero-menu__link"><i class="icon icon-youtube"></i></a>
-        </div>
+
+        <?= SocialNetworkWidget::widget(['view_type' => SocialNetworkWidget::VIEW_TYPE_SIDEBAR]) ?>
+
         <div class="contact__info">
-            <span class="title">Контакты отдела продаж</span>
+            <span class="title"><?= Yii::t('app', 'sale_department_label') ?></span>
             <div class="contact__info-inner">
                 <div class="contact__map">
                     <div id="contact-map"></div>
@@ -18,17 +28,22 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
+
 <section class="fix contact__form">
-    <span class="title sub-title">Напишите нам</span>
+
+    <span class="title sub-title"><?= Yii::t('app', 'write_us_txt') ?></span>
+
     <form action="#" class="form form__contact">
+
         <div class="form__contact-wrap">
             <div class="form__row">
-                <input type="text" required placeholder="Ваше имя*"  name="name" class="form__input">
-                <input type="text" required placeholder="Номер телефона*"  name="phone" class="form__input" id="phone">
+                <input type="text" required placeholder="<?= Yii::t('app', 'form_name_txt') ?>*"  name="name" class="form__input">
+                <input type="text" required placeholder="<?= Yii::t('app', 'form_phone_txt') ?>*"  name="phone" class="form__input" id="phone">
             </div>
-            <textarea name="comment" id="" placeholder="Ваше сообщение" class="form__input form__textarea" required></textarea>
+            <textarea name="comment" placeholder="<?= Yii::t('app', 'form_message_txt') ?>" class="form__input form__textarea" required></textarea>
         </div>
 
         <div class="contact__form-hide">
@@ -42,6 +57,8 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn_beige form__btn contact__btn" type="submit">Отправить</button>
+
+        <button class="btn btn_beige form__btn contact__btn" type="submit"><?= Yii::t('app', 'submit_txt') ?></button>
     </form>
+
 </section>
