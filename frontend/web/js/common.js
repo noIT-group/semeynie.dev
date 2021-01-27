@@ -174,12 +174,6 @@ $(document).ready(function () {
 
     $('.slick-dots').insertAfter($('.gallery__arrow-prev'));
 
-
-    $('.contact__btn').click(function () {
-        $('.form__contact').toggleClass('active');
-        $(this).text('написать еще')
-    });
-
     lightbox.option({
         'showImageNumberLabel': false,
     });

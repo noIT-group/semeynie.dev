@@ -15,10 +15,13 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/icomoon.css',
         'css/main.min.css',
+        'custom/fancybox/fancybox.min.css',
+        'custom/style.css',
     ];
 
     public $js = [
         'js/common.js',
+        'custom/app.js',
     ];
 
     public $depends = [

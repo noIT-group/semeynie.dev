@@ -4,6 +4,7 @@
  * @var $this View
  */
 
+use frontend\widgets\FormWidget;
 use frontend\widgets\SocialNetworkWidget;
 use yii\web\View;
 
@@ -32,33 +33,4 @@ $this->title = Yii::t('app', 'contact_txt');
     </div>
 </section>
 
-<section class="fix contact__form">
-
-    <span class="title sub-title"><?= Yii::t('app', 'write_us_txt') ?></span>
-
-    <form action="#" class="form form__contact">
-
-        <div class="form__contact-wrap">
-            <div class="form__row">
-                <input type="text" required placeholder="<?= Yii::t('app', 'form_name_txt') ?>*"  name="name" class="form__input">
-                <input type="text" required placeholder="<?= Yii::t('app', 'form_phone_txt') ?>*"  name="phone" class="form__input" id="phone">
-            </div>
-            <textarea name="comment" placeholder="<?= Yii::t('app', 'form_message_txt') ?>" class="form__input form__textarea" required></textarea>
-        </div>
-
-        <div class="contact__form-hide">
-            <div class="modal__content">
-                <div class="check">
-                    <div id="check-part-1" class="check__sign"></div>
-                    <div id="check-part-2" class="check__sign"></div>
-                </div>
-                <div class="description">
-                    <p><strong>Спасибо!</strong><br>Ваши контакты отправлены отделу продаж и в скором времени с Вами свяжется наш менеджер </p>
-                </div>
-            </div>
-        </div>
-
-        <button class="btn btn_beige form__btn contact__btn" type="submit"><?= Yii::t('app', 'submit_txt') ?></button>
-    </form>
-
-</section>
+<?= FormWidget::widget(['view_type' => FormWidget::VIEW_TYPE_WRITE_US]) ?>

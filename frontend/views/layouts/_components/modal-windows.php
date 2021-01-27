@@ -1,15 +1,18 @@
-<div class="modal">
-    <div class="remodal" data-remodal-id="modal__more">
-        <button type="button" data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
-        <div class="modal__form">
-            <form action="#">
-                <input type="text" placeholder="Ваше имя*" class="modal__input" name="name">
-                <input type="text" class="modal__input" placeholder="Номер телефона*" name="phone" id="phone">
-                <button type="submit" class="btn btn_beige modal__btn" data-remodal-target="modal__thanks">Узнать подробности</button>
-            </form>
-        </div>
-    </div>
-</div>
+<?php
+
+/**
+ * @var $this View
+ *
+ */
+
+use frontend\widgets\FormWidget;
+use yii\helpers\Url;
+use yii\web\View;
+
+?>
+<?= FormWidget::widget(['view_type' => FormWidget::VIEW_TYPE_RECALL]) ?>
+
+<?= FormWidget::widget(['view_type' => FormWidget::VIEW_TYPE_CONSULTATION]) ?>
 
 <div class="modal">
     <div class="remodal" data-remodal-id="modal__thanks">
@@ -20,9 +23,9 @@
                 <div id="check-part-2" class="check__sign"></div>
             </div>
             <div class="description">
-                <p><strong>Спасибо!</strong><br>Ваши контакты отправлены отделу продаж и в скором времени с Вами свяжется наш менеджер </p>
+                <p><?= Yii::t('app', 'form_thanks_txt') ?></p>
             </div>
         </div>
-        <a href="/" class="btn btn_beige modal__btn">на главную</a>
+        <a href="<?= Url::to(['site/index']) ?>" class="btn btn_beige modal__btn"><?= Yii::t('app', 'to_home_page_txt') ?></a>
     </div>
 </div>

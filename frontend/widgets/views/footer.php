@@ -1,8 +1,6 @@
 <?php
 
-use frontend\widgets\LanguageWidget;
 use frontend\widgets\SocialNetworkWidget;
-use yii\helpers\Url;
 
 /**
  * @var $navigationMenuSettings array
@@ -19,7 +17,7 @@ use yii\helpers\Url;
             </div>
         <?php endif ?>
         <div class="footer__item footer__consultation">
-            <a href="#modal__more" class="btn btn_beige footer__btn"><?= Yii::t('app', 'get_consultation_txt') ?></a>
+            <button type="button" data-remodal-target="modal__consultation" class="btn btn_beige footer__btn"><?= Yii::t('app', 'get_consultation_txt') ?></button>
         </div>
         <div class="footer__item footer__info">
             <?= SocialNetworkWidget::widget(['view_type' => SocialNetworkWidget::VIEW_TYPE_FOOTER]) ?>

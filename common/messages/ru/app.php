@@ -21,6 +21,7 @@ return [
     'form_name_txt' => 'Ваше имя',
     'form_phone_txt' => 'Номер телефона',
     'form_message_txt' => 'Ваше сообщение',
+    'form_comment_txt' => 'Комментарий',
 
     'select_flat_txt' => 'выбрать квартиру',
     'select_from_genplan_txt' => 'выбрать с генплана',
@@ -44,5 +45,11 @@ return [
     'infrastructure_txt' => 'Инфраструктура',
 
     'get_consultation_txt' => 'получить консультацию',
+
+    'get_more_info_txt' => 'Узнать подробности',
+
+    'to_home_page_txt' => 'на главную',
+
+    "form_thanks_txt" => "<strong>Спасибо!</strong><br>Ваши контакты отправлены отделу продаж и в скором времени с Вами свяжется наш менеджер.",
 
 ];

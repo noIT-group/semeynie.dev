@@ -32,6 +32,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->view->params['form_name'] = 'Главная СТ';
+
         Yii::$app->view->params['body__class'] = 'home page static';
 
         $homeSliderModels = MultiSlider::find()
@@ -73,6 +75,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        $this->view->params['form_name'] = 'О нас СТ';
         Yii::$app->view->params['body__class'] = 'developer page static';
 
         $documentModels = Document::find()
@@ -96,6 +99,7 @@ class SiteController extends Controller
      */
     public function actionGenplan()
     {
+        $this->view->params['form_name'] = 'Генплан СТ';
         Yii::$app->view->params['body__class'] = 'genplan page';
 
         return $this->render('genplan');
@@ -106,6 +110,7 @@ class SiteController extends Controller
      */
     public function actionGallery()
     {
+        $this->view->params['form_name'] = 'Галерея СТ';
         Yii::$app->view->params['body__class'] = 'gallery page static';
 
         $models = Gallery::find()
@@ -121,6 +126,7 @@ class SiteController extends Controller
      */
     public function actionContacts()
     {
+        $this->view->params['form_name'] = 'Контакты СТ';
         Yii::$app->view->params['body__class'] = 'contact page static';
 
         return $this->render('contact');
