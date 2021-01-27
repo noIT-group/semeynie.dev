@@ -47,6 +47,7 @@ $this->title = Yii::t('app', 'logotype_company_txt');
                 </div>
             </div>
         <?php endif ?>
+
     </div>
 </section>
 

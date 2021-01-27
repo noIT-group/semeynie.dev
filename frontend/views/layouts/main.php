@@ -41,6 +41,25 @@ AppAsset::register($this);
 
 <?= $this->render('@frontend/views/layouts/_components/modal-windows') ?>
 
+<script>
+    function initMap() {
+
+        if (document.getElementById('contact-map') !== null) {
+
+            var map = new google.maps.Map(document.getElementById('contact-map'), {
+                zoom: 16,
+                center: {
+                    lat: 46.482781,
+                    lng: 30.693278
+                },
+                disableDefaultUI: true,
+            });
+
+        }
+
+    }
+</script>
+
 <?= $this->registerJsFile('https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js') ?>
 
 <?= $this->registerJsFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyAtdJ2lMzLN7jGl_KHHWv1UvXrhqExiSUM&callback=initMap') ?>

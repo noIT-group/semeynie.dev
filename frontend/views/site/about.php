@@ -47,10 +47,12 @@ $this->title = Yii::t('app', 'about_us_txt');
 
             <?php foreach ($documentModels as $documentModel) : ?>
                 <div class="documents__item">
-                    <div class="documents__img">
-                        <?= Html::img($documentModel->image_small_thumb) ?>
-                    </div>
-                    <p class="documents__desc"><?= $documentModel->name ?></p>
+                    <a href="<?= $documentModel->image_big_thumb ?>" data-fancybox>
+                        <div class="documents__img">
+                            <?= Html::img($documentModel->image_small_thumb) ?>
+                        </div>
+                        <p class="documents__desc"><?= $documentModel->name ?></p>
+                    </a>
                 </div>
             <?php endforeach ?>
 

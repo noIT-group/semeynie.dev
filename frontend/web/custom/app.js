@@ -112,7 +112,7 @@ $(document).ready(function () {
 
         $('[data-fancybox]').fancybox({
             loop: false,
-            toolbar: "auto",
+            toolbar: 'auto',
             buttons: []
         });
 

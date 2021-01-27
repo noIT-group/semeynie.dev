@@ -54,29 +54,35 @@ $(document).ready(function () {
 
         var $menu = $('.hero-menu');
 
-        var topPos = $menu.offset().top;
+        if ($menu.length) {
 
-        var hw = $menu.width();
+            var topPos = $menu.offset().top;
 
-        $(window).scroll(function () {
+            var hw = $menu.width();
 
-            var top = $(document).scrollTop();
+            $(window).scroll(function () {
 
-            if (top > topPos) {
+                var top = $(document).scrollTop();
 
-                $('.hero-menu').addClass('hero-menu__fixed');
-                $('.section__wrap').css({
-                    'padding-left': hw + 'px',
-                })
+                if (top > topPos) {
 
-            } else {
+                    $('.hero-menu').addClass('hero-menu__fixed');
 
-                $('.hero-menu').removeClass('hero-menu__fixed');
-                $('.section__wrap').removeAttr('style');
+                    $('.section__wrap').css({
+                        'padding-left': hw + 'px',
+                    })
 
-            }
+                } else {
 
-        });
+                    $('.hero-menu').removeClass('hero-menu__fixed');
+
+                    $('.section__wrap').removeAttr('style');
+
+                }
+
+            });
+
+        }
 
     }
 
@@ -767,19 +773,17 @@ if ($('.js-google-maps').length) {
         maximumAge: 0
     });
 
-    googleMaps.renderMarkers([
-        {
-            'icon': '/img/pin.png',
-            'infoWindow': {
-                'content': '<h2>Семейные традиции</h2>',
-            },
-            'position': {
-                lat: 46.435606,
-                lng: 30.737918
-            },
-            'title': 'Семейные традиции',
+    googleMaps.renderMarkers([{
+        'icon': '/img/pin.png',
+        'infoWindow': {
+            'content': '<h2>Семейные традиции</h2>',
         },
-    ]);
+        'position': {
+            lat: 46.435606,
+            lng: 30.737918
+        },
+        'title': 'Семейные традиции',
+    }]);
 
     googleMaps.renderMarkerClusterer({
         imagePath: 'https://cdn.rawgit.com/marcobiedermann/playground/master/ui/map/google-maps/google-maps-marker/source/content/images/m'
@@ -796,22 +800,5 @@ if ($('.js-google-maps').length) {
         fillColor: '#fff',
         fillOpacity: 0.3
     });
-
-}
-
-function initMap() {
-
-    if (document.getElementById('contact-map') !== null) {
-
-        var map = new google.maps.Map(document.getElementById('contact-map'), {
-            zoom: 16,
-            center: {
-                lat: 46.482781,
-                lng: 30.693278
-            },
-            disableDefaultUI: true,
-        });
-
-    }
 
 }
