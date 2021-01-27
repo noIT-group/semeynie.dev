@@ -10,6 +10,9 @@ class Feedback extends ActiveRecord
 {
     const SECRET_KEY = 'not-machine';
 
+    /**
+     * @var $secret_form_key string
+     */
     public $secret_form_key;
 
     /**
@@ -26,6 +29,9 @@ class Feedback extends ActiveRecord
     public function rules()
     {
         return [
+            [['name', 'phone'], 'required'],
+            [['name', 'phone', 'email', 'message'], 'string'],
+            [['data'], 'safe'],
             ['secret_form_key', 'string', 'max' => 50],
         ];
     }
@@ -79,6 +85,28 @@ class Feedback extends ActiveRecord
     }
 
     /**
+     * @return string
+     */
+    public function getEmailBody()
+    {
+        $name = !empty($this->name) ? trim($this->name) : '-';
+        $phone = !empty($this->phone) ? trim($this->phone) : '-';
+        $email = !empty($this->email) ? trim($this->email) : '-';
+        $message = !empty($this->message) ? trim($this->message) : '-';
+        $source = !empty($this->source) ? trim($this->source) : '-';
+
+        $array = [
+            "Имя: $name",
+            "Телефон: $phone",
+            "Email: $email",
+            "Сообщение: $message",
+            "Источник: $source",
+        ];
+
+        return implode("\n", $array);
+    }
+
+    /**
      * @return bool|mixed
      */
     public function sendEmail()
@@ -86,9 +114,9 @@ class Feedback extends ActiveRecord
         $toEmail = Yii::$app->settings->get('admin_email', 'SiteConfigSettings');
 
         return Yii::$app->mailer->compose()
-            ->setTo($toEmail)
+            ->setTo([$toEmail])
             ->setFrom([Yii::$app->params['adminEmailFrom'] => Yii::$app->params['adminNameFrom']])
-            ->setSubject("{$this->subject}")
+            ->setSubject("ФОРМА - Симейные Традиции")
             ->setTextBody($this->getEmailBody())
             ->send();
     }

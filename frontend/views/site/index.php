@@ -125,8 +125,7 @@ $this->title = Yii::t('app', 'logotype_company_txt');
                 <div class="installment__content">
                     <span class="installment__subtitle"><?= $installmentApartmentSettings['name'] ?></span>
                     <?= $installmentApartmentSettings['body'] ?>
-                    <a href="#modal__more"
-                       class="btn btn_beige installment__btn"><?= Yii::t('app', 'know_more_txt') ?></a>
+                    <button type="button" data-remodal-target="modal__more" class="btn btn_beige installment__btn"><?= Yii::t('app', 'know_more_txt') ?></button>
                 </div>
             </div>
         </div>

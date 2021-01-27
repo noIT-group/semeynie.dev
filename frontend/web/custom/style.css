@@ -1,0 +1,10 @@
+.estate-widget-iframe {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}

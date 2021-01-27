@@ -76,6 +76,8 @@ return [
                     'js' => [
                         'js/scripts.min.js',
                         'js/input.mask.js',
+                        'custom/libs/jquery.mask.min.js',
+                        'custom/fancybox/fancybox.min.js',
                         'https://cdn.jsdelivr.net/npm/sweetalert2@8',
                     ]
                 ]
