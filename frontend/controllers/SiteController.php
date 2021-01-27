@@ -37,18 +37,9 @@ class SiteController extends Controller
         Yii::$app->view->params['body__class'] = 'home page static';
 
         $homeSliderModels = MultiSlider::find()
-            ->where([
-                'type' => MultiSlider::HOME_TYPE,
-                'status' => MultiSlider::STATUS_ENABLE,
-            ])
+            ->where(['type' => MultiSlider::HOME_TYPE, 'status' => MultiSlider::STATUS_ENABLE])
             ->orderBy(['sort_order' => SORT_ASC])
             ->all();
-
-        $aboutProjectSettings = AboutProjectSettings::getAll();
-
-        $installmentApartmentSettings = InstallmentApartmentSettings::getAll();
-
-        $aboutDeveloperSettings = AboutDeveloperSettings::getAll();
 
         $documentModels = Document::find()
             ->where(['status' => Document::STATUS_ENABLE])
@@ -62,9 +53,9 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'homeSliderModels' => $homeSliderModels,
-            'aboutProjectSettings' => $aboutProjectSettings,
-            'installmentApartmentSettings' => $installmentApartmentSettings,
-            'aboutDeveloperSettings' => $aboutDeveloperSettings,
+            'aboutProjectSettings' => AboutProjectSettings::getAll(),
+            'installmentApartmentSettings' => InstallmentApartmentSettings::getAll(),
+            'aboutDeveloperSettings' => AboutDeveloperSettings::getAll(),
             'documentModels' => $documentModels,
             'developerObjectModels' => $developerObjectModels,
         ]);
@@ -94,16 +85,7 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * @return string
-     */
-    public function actionGenplan()
-    {
-        $this->view->params['form_name'] = 'Генплан СТ';
-        Yii::$app->view->params['body__class'] = 'genplan page';
 
-        return $this->render('genplan');
-    }
 
     /**
      * @return string

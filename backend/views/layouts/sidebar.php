@@ -37,7 +37,7 @@ use yii\helpers\Html;
                         ['label' => 'Слайдер', 'url' => ['/home-slider/index']],
                         ['label' => 'О проекте', 'url' => ['/settings/about-project-settings']],
                         ['label' => 'Квартиры в рассрочку', 'url' => ['/settings/installment-apartment-settings']],
-                        ['label' => 'Особенности', 'url' => ['/settings/features-settings']],
+                        ['label' => 'Преимущества', 'url' => ['/settings/features-settings']],
                         ['label' => 'Проекты застройщика', 'url' => ['/settings/about-developer-project-settings']],
                     ]
                 ],
