@@ -15,7 +15,7 @@ use yii\web\View;
 ?>
 <div class="modal">
     <div class="remodal" data-remodal-id="modal__consultation">
-        <button type="button" data-remodal-action="close" class="remodal-close"><span class="close"></span></button>
+        <button type="button" data-remodal-action="close" class="remodal-close"><span class="remodal-btn"></span></button>
         <div class="modal__form">
 
             <?php $form = ActiveForm::begin([

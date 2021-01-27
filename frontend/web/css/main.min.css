@@ -8694,7 +8694,6 @@ span.lang__link {
         -webkit-flex: auto;
         -ms-flex: auto;
         flex: auto;
-        max-width: -webkit-calc(100% - 100px);
         max-width: calc(100% - 100px);
         margin-left: auto
     }
@@ -8702,7 +8701,6 @@ span.lang__link {
 
 @media (max-width: 575.98px) {
     .header_center {
-        max-width: -webkit-calc(100% - 55px);
         max-width: calc(100% - 55px)
     }
 }
@@ -9368,7 +9366,6 @@ span.lang__link {
 
 .hero__content {
     width: 89.4%;
-    max-width: -webkit-calc(100% - 110px);
     max-width: calc(100% - 110px);
     margin-left: auto;
     padding: 30px 20px;
@@ -9380,7 +9377,6 @@ span.lang__link {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: -webkit-calc(100vh - 263px);
     min-height: calc(100vh - 263px);
     display: -webkit-box;
     display: -webkit-flex;
@@ -9515,7 +9511,6 @@ span.lang__link {
 
 .hero__slider-wrap {
     width: 89.4%;
-    max-width: -webkit-calc(100% - 110px);
     max-width: calc(100% - 110px);
     margin-left: auto;
     -o-object-fit: cover;
@@ -9812,7 +9807,6 @@ span.lang__link {
 
 @media (max-width: 575.98px) {
     .footer__menu {
-        width: -webkit-calc(100% - 50px);
         width: calc(100% - 50px);
         height: 140px
     }
@@ -10473,7 +10467,6 @@ span.lang__link {
 @media only screen and (max-width: 1600px) {
     .cr-boundary {
         max-height: 100vh;
-        max-width: -webkit-calc(100% - 162px);
         max-width: calc(100% - 162px)
     }
 
@@ -10665,7 +10658,6 @@ span.lang__link {
     content: "\e907";
     font-family: icomoon;
     position: absolute;
-    right: -webkit-calc(100% + 5px);
     right: calc(100% + 5px);
     color: #d3c09f;
     font-size: 26px
@@ -11148,7 +11140,6 @@ span.lang__link {
 
 .graphic__table-body {
     background-color: #fff;
-    height: -webkit-calc(100vh - 405px);
     height: calc(100vh - 405px);
     min-height: 135px;
     overflow: auto
@@ -11983,7 +11974,6 @@ span.lang__link {
 }
 
 .genplan__inner {
-    max-width: -webkit-calc(100% - 220px);
     max-width: calc(100% - 220px);
     max-height: 900px;
     margin-left: auto;
@@ -11994,7 +11984,6 @@ span.lang__link {
 @media only screen and (max-width: 1400px) {
     .genplan__inner {
         max-height: 700px;
-        max-width: -webkit-calc(100% - 150px);
         max-width: calc(100% - 150px)
     }
 }
@@ -13630,9 +13619,6 @@ input[type=range].my-image-range::-ms-thumb {
     .plan_mob__filter-link {
         font-size: 15px
     }
-}
-
-.developer {
 }
 
 .developer .hero {
@@ -16651,6 +16637,25 @@ input[type=range].my-image-range::-ms-thumb {
 
 .remodal-overlay {
     background: rgba(196, 196, 196, .7)
+}
+
+.remodal-btn {
+    position: absolute;
+    left: auto;
+    right: 30px;
+    top: 30px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background: 0 0;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0
+}
+
+.remodal-btn:focus {
+    outline: 0
 }
 
 .remodal-close {
