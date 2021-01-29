@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\components\EstateWidgetComponent;
 use Yii;
 use yii\web\Controller;
 use GuzzleHttp\Client;
@@ -10,8 +11,6 @@ use yii\web\NotFoundHttpException;
 
 class GenplanController extends Controller
 {
-    const REQUEST_DOMAIN = 'http://estate-widget.local/api';
-
     const PROJECT_ID = 5;
 
     /**
@@ -66,7 +65,7 @@ class GenplanController extends Controller
 
         try {
 
-            $request_url = self::REQUEST_DOMAIN . "/" . self::PROJECT_ID . "/{$section_number}/{$section_number}/floors";
+            $request_url = EstateWidgetComponent::WIDGET_DOMAIN . "/api/" . self::PROJECT_ID . "/{$section_number}/{$section_number}/floors";
 
             $response = $client->request('GET', $request_url);
 
