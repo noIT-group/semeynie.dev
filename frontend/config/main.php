@@ -74,7 +74,7 @@ return [
                     'basePath' => '@webroot',
                     'baseUrl' => '@web',
                     'js' => [
-                        'js/scripts.min.js',
+                        'js/vendors.min.js',
                         'js/input.mask.js',
                         'custom/libs/jquery.mask.min.js',
                         'custom/fancybox/fancybox.min.js',
@@ -88,6 +88,9 @@ return [
         ],
         'settingsLanguageGetter' => [
             'class' => 'frontend\components\SettingsLanguageGetter',
+        ],
+        'estateWidget' => [
+            'class' => 'frontend\components\EstateWidgetComponent',
         ],
     ],
     'params' => $params,

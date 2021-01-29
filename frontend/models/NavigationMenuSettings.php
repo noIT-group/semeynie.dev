@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use frontend\components\EstateWidgetComponent;
 use Yii;
 
 class NavigationMenuSettings extends \common\models\settings\NavigationMenuSettings
@@ -84,16 +85,20 @@ class NavigationMenuSettings extends \common\models\settings\NavigationMenuSetti
 
                     foreach ($array_item as $array_item_index => &$array_item_value) {
 
-                        if(is_array($array_item_value) && $array_item_value) {
+                        if (is_array($array_item_value) && $array_item_value) {
 
-                            foreach($array_item_value as $array_item_inner_index => &$array_item_inner_value) {
+                            foreach ($array_item_value as $array_item_inner_index => &$array_item_inner_value) {
 
-                                if(in_array('link', [$array_item_inner_index])) {
+                                if (in_array('link', [$array_item_inner_index])) {
 
-                                    if(Yii::$app->language === 'ua') {
+                                    if (strpos($array_item_inner_value, EstateWidgetComponent::WIDGET_DOMAIN) === false) {
 
-                                        if(strpos($array_item_inner_value, '/ua') === false) {
-                                            $array_item_inner_value = '/ua' . $array_item_inner_value;
+                                        if (Yii::$app->language === 'ua') {
+
+                                            if (strpos($array_item_inner_value, '/ua') === false) {
+                                                $array_item_inner_value = '/ua' . $array_item_inner_value;
+                                            }
+
                                         }
 
                                     }

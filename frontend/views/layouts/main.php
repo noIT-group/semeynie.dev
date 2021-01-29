@@ -4,6 +4,7 @@
 
 /* @var $content string */
 
+use frontend\widgets\EstateWidget;
 use frontend\widgets\FooterWidget;
 use frontend\widgets\HeaderWidget;
 use yii\helpers\Html;
@@ -34,12 +35,16 @@ AppAsset::register($this);
 <?= $this->render('_components/analytics/gtm-no-script') ?>
 
 <?= HeaderWidget::widget() ?>
+
 <main class="main">
     <?= $content ?>
 </main>
+
 <?= FooterWidget::widget() ?>
 
 <?= $this->render('@frontend/views/layouts/_components/modal-windows') ?>
+
+<?= EstateWidget::widget() ?>
 
 <script>
     function initMap() {

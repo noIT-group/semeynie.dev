@@ -142,7 +142,7 @@ $this->title = Yii::t('app', 'logotype_company_txt');
                 <div class="installment__wrap-button">
                     <a href="<?= Url::to(['site/genplan']) ?>" class="btn btn_transparent installment__btn installment__btn_mob">
                         <i class="icon icon-click"></i><?= Yii::t('app', 'select_from_genplan_txt') ?></a>
-                    <a href="#" class="btn btn_transparent installment__btn"><i class="icon">
+                    <a href="#" data-iframe-src="<?= Yii::$app->estateWidget->getProjectUrl() ?>/1/filter" class="btn btn_transparent installment__btn js_popup_open"><i class="icon">
                             <img src="/img/svg/nastroiki.svg"></i><?= Yii::t('app', 'search_by_params_txt') ?></a>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use frontend\components\EstateWidgetComponent;
 use frontend\widgets\SocialNetworkWidget;
 
 /**
@@ -12,7 +13,11 @@ use frontend\widgets\SocialNetworkWidget;
         <?php if (isset($navigationMenuSettings['footer_menu']) && ($footer_menu = $navigationMenuSettings['footer_menu'])) : ?>
             <div class="footer__item footer__menu">
                 <?php foreach($footer_menu as $footer_menu_item) : ?>
-                    <a href="<?= $footer_menu_item['link'] ?>" class="footer__menu-link"><?= $footer_menu_item['anchor'] ?></a>
+                <?php if (strpos($footer_menu_item['link'], EstateWidgetComponent::WIDGET_DOMAIN) !== false) : ?>
+                        <a href="#" data-iframe-src="<?= $footer_menu_item['link'] ?>" class="footer__menu-link js_popup_open"><?= $footer_menu_item['anchor'] ?></a>
+                    <?php else : ?>
+                        <a href="<?= $footer_menu_item['link'] ?>" class="footer__menu-link"><?= $footer_menu_item['anchor'] ?></a>
+                    <?php endif ?>
                 <?php endforeach ?>
             </div>
         <?php endif ?>
