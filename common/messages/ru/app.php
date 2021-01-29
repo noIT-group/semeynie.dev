@@ -31,4 +31,14 @@ return [
     'to_home_page_txt' => 'на главную',
     'section_txt' => 'Секция',
     "form_thanks_txt" => "<strong>Спасибо!</strong><br>Ваши контакты отправлены отделу продаж и в скором времени с Вами свяжется наш менеджер.",
+
+    'scale_txt' => 'Масштаб',
+
+    'select_by_params_txt' => 'Подбор по параметрам',
+
+    'none_in_sale_txt' => 'нет в продаже',
+    'in_sale_txt' => '{value} в продаже',
+
+    'floor_txt' => 'ЭТАЖ',
+
 ];

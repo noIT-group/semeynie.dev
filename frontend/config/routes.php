@@ -8,7 +8,7 @@ return [
     '/about' => 'site/about',
 
     '/genplan' => 'genplan/index',
-    '/genplan/<section_number>' => 'genplan/view',
+    '/genplan/<section_id>' => 'genplan/view',
 
     '/gallery' => 'site/gallery',
     '/contact' => 'site/contacts',
