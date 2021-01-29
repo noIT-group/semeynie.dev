@@ -99,7 +99,7 @@ class GenplanController extends Controller
             $floorModel->iframe_url = "{$widget_domain}/{$floorModel->section_id}/flats/{$floorModel->id}";
 
             if (($floorModel->available_flats)) {
-                $floorModel->available_flats_txt = Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);
+                $floorModel->available_flats_txt = ' ' . Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);
             } else {
                 $floorModel->available_flats_txt = Yii::t('app', 'none_in_sale_txt');
             }
