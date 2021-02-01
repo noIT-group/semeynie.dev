@@ -29,23 +29,23 @@ class InfrastructureCategory extends \common\models\InfrastructureCategory
                 case self::ICON_KINDERGARTENS:
                     return $path . 'infrastructure1.svg';
                 case self::ICON_SCHOOLS:
-                    return $icon . 'infrastructure2.svg';
+                    return $path . 'infrastructure2.svg';
                 case self::ICON_CAFE:
-                    return $icon . 'infrastructure3.svg';
+                    return $path . 'infrastructure3.svg';
                 case self::ICON_SUPER_MARKET:
-                    return $icon . 'infrastructure4.svg';
+                    return $path . 'infrastructure4.svg';
                 case self::ICON_TRADE_CENTER:
-                    return $icon . 'infrastructure5.svg';
+                    return $path . 'infrastructure5.svg';
                 case self::ICON_PHARMACY:
-                    return $icon . 'infrastructure6.svg';
+                    return $path . 'infrastructure6.svg';
                 case self::ICON_AUTO_SERVICE:
-                    return $icon . 'infrastructure7.svg';
+                    return $path . 'infrastructure7.svg';
                 case self::ICON_CINEMAS:
-                    return $icon . 'infrastructure8.svg';
+                    return $path . 'infrastructure8.svg';
                 case self::ICON_MARKETS:
-                    return $icon . 'infrastructure9.svg';
+                    return $path . 'infrastructure9.svg';
                 case self::ICON_SPORTS:
-                    return $icon . 'infrastructure10.svg';
+                    return $path . 'infrastructure10.svg';
             }
 
         }
