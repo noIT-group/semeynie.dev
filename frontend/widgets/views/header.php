@@ -36,8 +36,10 @@ use yii\helpers\Url;
                             <?php foreach ($header_menu as $header_menu_item) : ?>
                                 <?php if (strpos($header_menu_item['link'], EstateWidgetComponent::WIDGET_DOMAIN) !== false) : ?>
                                     <a href="#" data-iframe-src="<?= $header_menu_item['link'] ?>" class="menu-slide__link js_popup_open"><?= $header_menu_item['anchor'] ?></a>
+                                <?php elseif(strpos($header_menu_item['link'], '#') !== false) : ?>
+                                    <a href="<?= $header_menu_item['link'] ?>" class="menu-slide__link js-scroll-to"><?= $header_menu_item['anchor'] ?></a>
                                 <?php else : ?>
-                                    <a href="<?= $header_menu_item['link'] ?>" class="menu-slide__link 333"><?= $header_menu_item['anchor'] ?></a>
+                                    <a href="<?= $header_menu_item['link'] ?>" class="menu-slide__link"><?= $header_menu_item['anchor'] ?></a>
                                 <?php endif ?>
                             <?php endforeach ?>
                         </div>
@@ -63,6 +65,8 @@ use yii\helpers\Url;
                     <?php foreach ($burger_menu as $burger_menu_item) : ?>
                         <?php if (strpos($burger_menu_item['link'], EstateWidgetComponent::WIDGET_DOMAIN) !== false) : ?>
                             <a href="#" data-iframe-src="<?= $burger_menu_item['link'] ?>" class="main-menu__link js_popup_open"><?= $burger_menu_item['anchor'] ?></a>
+                        <?php elseif(strpos($burger_menu_item['link'], '#') !== false) : ?>
+                            <a href="<?= $burger_menu_item['link'] ?>" class="main-menu__link js-scroll-to"><?= $burger_menu_item['anchor'] ?></a>
                         <?php else : ?>
                             <a href="<?= $burger_menu_item['link'] ?>" class="main-menu__link"><?= $burger_menu_item['anchor'] ?></a>
                         <?php endif ?>

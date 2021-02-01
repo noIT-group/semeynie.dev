@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use frontend\components\EstateWidgetComponent;
 use Yii;
+use yii\helpers\Url;
 
 class NavigationMenuSettings extends \common\models\settings\NavigationMenuSettings
 {
@@ -91,7 +92,13 @@ class NavigationMenuSettings extends \common\models\settings\NavigationMenuSetti
 
                                 if (in_array('link', [$array_item_inner_index])) {
 
-                                    if (strpos($array_item_inner_value, EstateWidgetComponent::WIDGET_DOMAIN) === false) {
+                                    if (strpos($array_item_inner_value, '#') !== false) {
+
+                                        if (Yii::$app->controller->route !== 'site/index') {
+                                            $array_item_inner_value = Url::to(['site/index']). $array_item_inner_value;
+                                        }
+
+                                    } elseif (strpos($array_item_inner_value, EstateWidgetComponent::WIDGET_DOMAIN) === false) {
 
                                         if (Yii::$app->language === 'ua') {
 

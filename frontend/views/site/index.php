@@ -54,7 +54,7 @@ $this->title = Yii::t('app', 'logotype_company_txt');
 <?php if (isset($aboutProjectSettings['name'], $aboutProjectSettings['body']) && ($aboutProjectSettings['name'] || $aboutProjectSettings['body'])) : ?>
     <section class="about fix">
         <div class="title about__title hide"><?= Yii::t('app', 'about_project_txt') ?></div>
-        <div class="about__wrap">
+        <div class="about__wrap" id="about-project">
             <div class="about_left">
                 <div class="about__img">
                     <img src="/img/about-img.jpg">
@@ -150,7 +150,7 @@ $this->title = Yii::t('app', 'logotype_company_txt');
     </section>
 <?php endif ?>
 
-<section class="location fix">
+<section class="location fix" id="infrastructure">
     <span class="title location__title">Расположение и инфраструктура</span>
     <div class="location__inner">
         <div class="location_left">

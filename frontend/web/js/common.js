@@ -18,32 +18,25 @@ $(document).ready(function () {
 
     $(window).bind('scroll', function () {
 
-        var $headerInner = $('.header__inner');
-
         if ($(window).scrollTop() > 140) {
 
-            $headerInner.addClass('fixed');
-            $headerInner.addClass('header__scroll');
-            $headerInner.css('z-index', '100');
+            $('.header__inner').addClass('fixed');
+            $('.header__inner').addClass('header__scroll');
+            $('.header__inner').css('z-index', '100');
 
             $('body').css({
                 'padding-top': menu_height + 'px'
             });
 
+
         } else {
 
-            $headerInner.removeClass('fixed');
-
-            $headerInner.removeClass('header__scroll');
-
+            $('.header__inner').removeClass('fixed');
+            $('.header__inner').removeClass('header__scroll');
             $('.main').css('z-index', '2');
-
             $('.burger-click-region').removeClass('is-open');
-
             $('.burger-menu__line').removeClass('active');
-
             $('.header_bottom').removeClass('header-scroll__menu');
-
             $('body').removeAttr('style');
 
         }
@@ -212,37 +205,25 @@ $(document).ready(function () {
         });
 
         elem.addEventListener('panzoomchange', function (event) {
-
-            // срабатывает на panzoomchange(любое действие с зумом. не учитывает перетаскивание)
             $('.my-image-range').val(panzoom.getScale());
-
-            var scaleNum = 1.3; // значение параметра зума
-
-            if (panzoom.getScale() < scaleNum) {
-                $('.svg__text').hide();
-            } else {
-                // eсли зум больше чем значение scaleNum
-                $('.svg__text').show();
-            }
-
         });
 
     }
 
     $('.svg__polygon').mouseover(function () {
-        $('.svg__image').show();
+        $('.svg__image').hide();
     });
 
     $('.svg__path').mouseover(function () {
-        $('.svg__image').show();
+        $('.svg__image').hide();
     });
 
     $('.svg__polygon').mouseout(function () {
-        $('.svg__image').hide();
+        $('.svg__image').show();
     });
 
     $('.svg__path').mouseout(function () {
-        $('.svg__image').hide();
+        $('.svg__image').show();
     });
 
     var x_pos, y_pos;
@@ -669,6 +650,45 @@ $(document).ready(function () {
     $('.plan_mob__more').click(function () {
         $('.plan_mob__hide').toggle();
     });
+
+    function initScrollToSection() {
+
+        if (document.location.pathname === '/' || document.location.pathname === '/ua') {
+
+            $('.js-scroll-to').on('click', function (e) {
+                event.preventDefault();
+
+                // hide sidebar menu
+                $('.menu-slide').removeClass('open');
+                $('.menu__trigger').removeClass('active');
+
+                var anchor = $(this).attr('href');
+
+                $('html, body').stop().animate({
+                    scrollTop: $(anchor).offset().top - 200
+                }, 1500);
+
+            });
+
+        } else {
+
+            if (window.location.hash) {
+
+                setTimeout(function () {
+
+                    $('html, body').stop().animate({
+                        scrollTop: $(window.location.hash).offset().top - 200
+                    }, 1500);
+
+                }, 200);
+
+            }
+
+        }
+
+    }
+
+    initScrollToSection();
 
 });
 
