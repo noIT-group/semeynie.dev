@@ -71,12 +71,14 @@ $this->title = Yii::t('app', 'section_txt') . " № {$section_number}";
 
                         <image xlink:href="/img/pin-section-empty.svg" clip-path="url(#clip-ff)" width="118"
                                height="149" x="400" y="25" class="section__pin"></image>
-                        <text x="450" y="80" class="section__pin pin-text1"><?= $section_number ?></text>
-                        <text x="430" y="98"
-                              class="section__pin pin-text2"><?= mb_strtolower(Yii::t('app', 'section_txt')) ?></text>
 
-                        <?php if (false) : ?>
-                            <!-- для второй секции -->
+                        <?php if (in_array($section_id, [151, 152])) : ?>
+
+                            <text x="450" y="80" class="section__pin pin-text1"><?= $section_number ?></text>
+                            <text x="430" y="98"
+                                  class="section__pin pin-text2"><?= mb_strtolower(Yii::t('app', 'section_txt')) ?></text>
+
+                        <?php else : ?>
                             <text x="735" y="50" class="section__pin pin-text3">2</text>
                             <text x="719" y="65" class="section__pin pin-text4">секция</text>
                         <?php endif ?>

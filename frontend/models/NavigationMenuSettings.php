@@ -95,7 +95,7 @@ class NavigationMenuSettings extends \common\models\settings\NavigationMenuSetti
                                     if (strpos($array_item_inner_value, '#') !== false) {
 
                                         if (Yii::$app->controller->route !== 'site/index') {
-                                            $array_item_inner_value = Url::to(['site/index']). $array_item_inner_value;
+                                            $array_item_inner_value = Url::to(['site/index']) . $array_item_inner_value;
                                         }
 
                                     } elseif (strpos($array_item_inner_value, EstateWidgetComponent::WIDGET_DOMAIN) === false) {
