@@ -47,11 +47,11 @@ use yii\helpers\Html;
             <div class="map-block__infrastructure">
                 <span class="map-block__infrastructure-title"><?= Yii::t('app', 'show_on_map_txt') ?>:</span>
 
-                <?php foreach ($infrastructureCategoryModels as $infrastructureCategoryIndex => $infrastructureCategoryModel) : ?>
-                    <select multiple="multiple" class="map-block__select">
+                <select multiple="multiple" class="map-block__select">
+                    <?php foreach ($infrastructureCategoryModels as $infrastructureCategoryIndex => $infrastructureCategoryModel) : ?>
                         <option value="<?= $infrastructureCategoryModel->id ?>"><?= $infrastructureCategoryModel->name ?></option>
-                    </select>
-                <?php endforeach ?>
+                    <?php endforeach ?>
+                </select>
 
                 <div class="map-block__infrastructure-inner">
                     <?php foreach ($infrastructureCategoryModels as $infrastructureCategoryIndex => $infrastructureCategoryModel) : ?>
