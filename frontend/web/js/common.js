@@ -656,7 +656,7 @@ $(document).ready(function () {
         if (document.location.pathname === '/' || document.location.pathname === '/ua') {
 
             $('.js-scroll-to').on('click', function (e) {
-                event.preventDefault();
+                e.preventDefault();
 
                 // hide sidebar menu
                 $('.menu-slide').removeClass('open');
@@ -670,19 +670,17 @@ $(document).ready(function () {
 
             });
 
-        } else {
+        }
 
-            if (window.location.hash) {
+        if (window.location.hash) {
 
-                setTimeout(function () {
+            setTimeout(function () {
 
-                    $('html, body').stop().animate({
-                        scrollTop: $(window.location.hash).offset().top - 200
-                    }, 1500);
+                $('html, body').stop().animate({
+                    scrollTop: $(window.location.hash).offset().top - 200
+                }, 1500);
 
-                }, 200);
-
-            }
+            }, 200);
 
         }
 
