@@ -2,7 +2,7 @@
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -20,7 +20,7 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
                     'fileMap' => [
-                        'app'  => 'app.php',
+                        'app' => 'app.php',
                     ],
                 ],
             ],
@@ -56,14 +56,13 @@ return [
         'calltracker' => [
             'class' => \noIT\calltracker\Calltracker::className(),
             'types' => [
-//                '*' => 'Всегда',
                 '*' => 'Если нет другого',
                 'googleads' => 'Google Ads',
                 'yandexdirect' => 'Яндекс Директ',
                 'facebook' => 'Facebook',
                 'instagram' => 'Instagram',
             ],
-            'items' => function() {
+            'items' => function () {
                 return Yii::$app->siteSettingsComponent->getPhones(true);
             },
             'limit' => 2,

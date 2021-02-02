@@ -49,7 +49,7 @@ return [
                 'security' => 'noIT\auth\controllers\SecurityController',
             ],
         ],
-        'gridview' =>  [
+        'gridview' => [
             'class' => '\kartik\grid\Module',
             'i18n' => [
                 'class' => 'yii\i18n\PhpMessageSource',
@@ -58,7 +58,7 @@ return [
             ]
         ],
         'tips' => [
-            'class'  => 'noIT\tips\Module',
+            'class' => 'noIT\tips\Module',
             'models' => [
                 \common\models\Feedback::className() => 'Заявки',
                 \common\models\settings\SocialGroupSettings::className() => 'Настройки -> Социальные группы',
@@ -113,7 +113,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => require (__DIR__ . '/routes.php'),
+            'rules' => require(__DIR__ . '/routes.php'),
         ],
         'componentHelper' => [
             'class' => 'backend\components\ComponentHelper'
