@@ -6,8 +6,7 @@ use yii\base\Component;
 
 class EstateWidgetComponent extends Component
 {
-    //const WIDGET_DOMAIN = 'https://katalog.estate';
-    const WIDGET_DOMAIN = 'http://estate-widget.local';
+    const WIDGET_DOMAIN = 'https://katalog.estate';
 
     const API_TOKEN = 'zfregkmwlrlwerr';
 
