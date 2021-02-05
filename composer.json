@@ -40,7 +40,7 @@
         "ext-json": "^1.5",
         "ext-curl": "*",
         "codemix/yii2-localeurls": "^1.7",
-        "guzzlehttp/guzzle": "^6.0"
+        "mashape/unirest-php": "3.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -3,16 +3,13 @@
 namespace frontend\controllers;
 
 use frontend\components\EstateWidgetComponent;
+use Unirest\Request;
 use Yii;
 use yii\web\Controller;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use yii\web\NotFoundHttpException;
 
 class GenplanController extends Controller
 {
-    const PROJECT_ID = 5;
-
     /**
      * @return string
      */
@@ -58,26 +55,20 @@ class GenplanController extends Controller
      */
     protected function getFloors($section_number)
     {
-        /**
-         * @var $client Client
-         */
-        $client = new Client();
-
         try {
 
-            $request_url = EstateWidgetComponent::WIDGET_DOMAIN . "/api/" . self::PROJECT_ID . "/{$section_number}/{$section_number}/floors";
+            $url = EstateWidgetComponent::WIDGET_DOMAIN . '/api/floors';
 
-            $response = $client->request('GET', $request_url);
+            $body = ['token' => EstateWidgetComponent::API_TOKEN];
 
-            if (($body = $response->getBody())) {
+            $response = Request::post($url, [], $body);
 
-                $body = json_decode($body);
-
+            if ($response && ($body = $response->body)) {
                 return isset($body->response) ? $body->response : null;
             }
 
-        } catch (GuzzleException $e) {
-            return;
+        } catch (\Exception $exception) {
+            exit($exception);
         }
 
     }
