@@ -29,24 +29,18 @@ class GenplanController extends Controller
      */
     public function actionView($section_id)
     {
-        $section_id = intval($section_id);
-
-        if (in_array($section_id, [151, 152, 153, 154])) {
-
-            if (($floorModels = EstateFloor::getFloors($section_id))) {
-                $floorModels = EstateFloor::transformFloors($floorModels);
-            }
-
-            $this->view->params['form_name'] = 'Секция СТ';
-            Yii::$app->view->params['body__class'] = 'section page';
-
-            return $this->render('view', [
-                'section_id' => $section_id,
-                'floorModels' => $floorModels,
-            ]);
-
+        if (($floorModels = EstateFloor::getFloors($section_id))) {
+            $floorModels = EstateFloor::transformFloors($floorModels);
         } else {
             throw new NotFoundHttpException('not found');
         }
+
+        $this->view->params['form_name'] = 'Секция СТ';
+        Yii::$app->view->params['body__class'] = 'section page';
+
+        return $this->render('view', [
+            'section_id' => $section_id,
+            'floorModels' => $floorModels,
+        ]);
     }
 }
