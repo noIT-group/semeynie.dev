@@ -18,7 +18,10 @@ class EstateFloor
 
             $url = EstateWidgetComponent::WIDGET_DOMAIN . '/api/floors';
 
-            $body = ['token' => EstateWidgetComponent::API_TOKEN];
+            $body = [
+                'section_id' => $section_number,
+                'token' => EstateWidgetComponent::API_TOKEN
+            ];
 
             $response = Request::post($url, [], $body);
 
@@ -38,24 +41,28 @@ class EstateFloor
      */
     public static function transformFloors($floorModels)
     {
-        $widget_domain = Yii::$app->estateWidget->getProjectUrl();
+        if ($floorModels) {
 
-        foreach ($floorModels as &$floorModel) {
+            $widget_domain = Yii::$app->estateWidget->getProjectUrl();
 
-            $floorModel->number_txt = $floorModel->number . ' ' . Yii::t('app', 'floor_txt');
+            foreach ($floorModels as &$floorModel) {
 
-            $floorModel->available_flats = intval($floorModel->available_flats);
+                $floorModel->number_txt = $floorModel->number . ' ' . Yii::t('app', 'floor_txt');
 
-            $floorModel->iframe_url = "{$widget_domain}/{$floorModel->section_id}/flats/{$floorModel->id}";
+                $floorModel->available_flats = intval($floorModel->available_flats);
 
-            if (($floorModel->available_flats)) {
-                $floorModel->available_flats_txt = ' ' . Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);
-            } else {
-                $floorModel->available_flats_txt = Yii::t('app', 'none_in_sale_txt');
+                $floorModel->iframe_url = "{$widget_domain}/{$floorModel->section_id}/flats/{$floorModel->id}";
+
+                if (($floorModel->available_flats)) {
+                    $floorModel->available_flats_txt = ' ' . Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);
+                } else {
+                    $floorModel->available_flats_txt = Yii::t('app', 'none_in_sale_txt');
+                }
+
             }
 
-        }
+            return $floorModels;
 
-        return $floorModels;
+        }
     }
 }
