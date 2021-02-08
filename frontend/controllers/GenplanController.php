@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\estate\EstateFloor;
 use frontend\components\EstateWidgetComponent;
 use Unirest\Request;
 use Yii;
@@ -22,7 +23,7 @@ class GenplanController extends Controller
     }
 
     /**
-     * @param $section_number string
+     * @param $section_id
      * @return string
      * @throws NotFoundHttpException
      */
@@ -32,8 +33,8 @@ class GenplanController extends Controller
 
         if (in_array($section_id, [151, 152, 153, 154])) {
 
-            if (($floorModels = $this->getFloors($section_id))) {
-                $floorModels = $this->transformFloors($floorModels);
+            if (($floorModels = EstateFloor::getFloors($section_id))) {
+                $floorModels = EstateFloor::transformFloors($floorModels);
             }
 
             $this->view->params['form_name'] = 'Секция СТ';
@@ -47,56 +48,5 @@ class GenplanController extends Controller
         } else {
             throw new NotFoundHttpException('not found');
         }
-    }
-
-    /**
-     * @param $section_number
-     * @return mixed|void
-     */
-    protected function getFloors($section_number)
-    {
-        try {
-
-            $url = EstateWidgetComponent::WIDGET_DOMAIN . '/api/floors';
-
-            $body = ['token' => EstateWidgetComponent::API_TOKEN];
-
-            $response = Request::post($url, [], $body);
-
-            if ($response && ($body = $response->body)) {
-                return isset($body->response) ? $body->response : null;
-            }
-
-        } catch (\Exception $exception) {
-            exit($exception);
-        }
-
-    }
-
-    /**
-     * @param $floorModels
-     * @return mixed
-     */
-    protected function transformFloors($floorModels)
-    {
-        $widget_domain = Yii::$app->estateWidget->getProjectUrl();
-
-        foreach ($floorModels as &$floorModel) {
-
-            $floorModel->number_txt = $floorModel->number . ' ' . Yii::t('app', 'floor_txt');
-
-            $floorModel->available_flats = intval($floorModel->available_flats);
-
-            $floorModel->iframe_url = "{$widget_domain}/{$floorModel->section_id}/flats/{$floorModel->id}";
-
-            if (($floorModel->available_flats)) {
-                $floorModel->available_flats_txt = ' ' . Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);
-            } else {
-                $floorModel->available_flats_txt = Yii::t('app', 'none_in_sale_txt');
-            }
-
-        }
-
-        return $floorModels;
     }
 }
