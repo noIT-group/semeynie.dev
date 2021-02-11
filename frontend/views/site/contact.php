@@ -25,7 +25,7 @@ $this->title = Yii::t('app', 'contact_txt');
                 <div class="contact__info-desc">
                     <a href="tel:+380487528694" class="contact__text">+38 (048) 752-86-94 </a>
                     <a href="mailto:sale@odesskie-tradicii.com" class="contact__text">sale@odesskie-tradicii.com</a>
-                    <p class="contact__text">ул. Академика Воробьева, 1 Работаем без выходных:<br> с 9-00 до 18-00</p>
+                    <p class="contact__text"><?= Yii::t('app', 'address_and_work_time_txt') ?></p>
                 </div>
             </div>
         </div>

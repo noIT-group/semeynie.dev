@@ -5,6 +5,7 @@
  * @var $homeSliderModels MultiSlider
  * @var $homeSliderModel MultiSlider
  * @var $aboutProjectSettings AboutProjectSettings
+ * @var $featuresSettings FeaturesSettings
  * @var $installmentApartmentSettings InstallmentApartmentSettings
  * @var $aboutDeveloperSettings AboutDeveloperSettings
  * @var $documentModels Document
@@ -17,6 +18,7 @@ use frontend\models\AboutDeveloperSettings;
 use frontend\models\AboutProjectSettings;
 use frontend\models\DeveloperObject;
 use frontend\models\Document;
+use frontend\models\FeaturesSettings;
 use frontend\models\InstallmentApartmentSettings;
 use frontend\models\MultiSlider;
 use frontend\widgets\InfrastructureWidget;
@@ -72,47 +74,25 @@ $this->title = Yii::t('app', 'logotype_company_txt');
     </section>
 <?php endif ?>
 
-<section class="advantage fix">
-    <div class="advantage__item">
-        <div class="advantage__icon">
-            <img src="/img/advantage-1.png">
-        </div>
-        <div class="advantage__content">
-            <div class="advantage__title">
-                <span class="color-red">Здесь будет другое преимущество</span>
+<?php if (isset($featuresSettings['list']) && ($featuresSettings = $featuresSettings['list'])) : ?>
+    <section class="advantage fix">
+        <?php $featuresImageNumber = 1 ?>
+        <?php foreach ($featuresSettings as $featuresSettingsIndex => $featuresSettingsItem) : ?>
+            <div class="advantage__item">
+                <div class="advantage__icon">
+                    <img src="/img/advantage-<?= $featuresImageNumber ?>.png?19912">
+                </div>
+                <div class="advantage__content">
+                    <div class="advantage__title">
+                        <span><?= $featuresSettingsItem['name'] ?></span>
+                    </div>
+                    <div class="advantage__text"><?= $featuresSettingsItem['body'] ?></div>
+                </div>
             </div>
-            <p class="advantage__text">Детский садик – это социализация ребёнка, его обучение и свободное время для
-                родителей. Удобно, когда он располагается прямо в вашем доме. Вам не придётся тратить драгоценное время
-                до или после работы, чтобы отвезти или забрать малыша.</p>
-        </div>
-    </div>
-    <div class="advantage__item">
-        <div class="advantage__icon">
-            <img src="/img/advantage-2.png" data-src="/img/advantage-2.png">
-        </div>
-        <div class="advantage__content">
-            <div class="advantage__title">
-                <span>Безопасность и уют</span>
-            </div>
-            <p class="advantage__text">Свой безопасный двор всегда был нормой для спальных районов. Мы не забыли про эту
-                традицию и включили в проект закрытую придомовую территорию. А также предусмотрели, чтобы Ваш взор во
-                дворе радовали цветы на клумбе и шелестящие листвой деревья.</p>
-        </div>
-    </div>
-    <div class="advantage__item">
-        <div class="advantage__icon">
-            <img src="/img/advantage-3.png" data-src="/img/advantage-3.png">
-        </div>
-        <div class="advantage__content">
-            <div class="advantage__title">
-                <span>Всё нужное — под рукой</span>
-            </div>
-            <p class="advantage__text">Богатая инфраструктура Таирова удовлетворяет любые потребности и капризы его
-                жителей. Южный рынок, торговые и развлекательные центры, магазины и лавочки, кафе и рестораны, кинотеатр
-                и стадион… Всё, что может вам понадобится, находится буквально у Вас под рукой.</p>
-        </div>
-    </div>
-</section>
+            <?php $featuresImageNumber++ ?>
+        <?php endforeach ?>
+    </section>
+<?php endif ?>
 
 <?php if (isset($installmentApartmentSettings['name'], $installmentApartmentSettings['body']) && ($installmentApartmentSettings['name'] || $installmentApartmentSettings['body'])) : ?>
     <section class="installment">
@@ -126,7 +106,8 @@ $this->title = Yii::t('app', 'logotype_company_txt');
                 <div class="installment__content">
                     <span class="installment__subtitle"><?= $installmentApartmentSettings['name'] ?></span>
                     <?= $installmentApartmentSettings['body'] ?>
-                    <button type="button" data-remodal-target="modal__more" class="btn btn_beige installment__btn"><?= Yii::t('app', 'know_more_txt') ?></button>
+                    <button type="button" data-remodal-target="modal__more"
+                            class="btn btn_beige installment__btn"><?= Yii::t('app', 'know_more_txt') ?></button>
                 </div>
             </div>
         </div>
@@ -140,9 +121,11 @@ $this->title = Yii::t('app', 'logotype_company_txt');
                 <span class="installment__title">У нас в наличии более 20 разных планировочных решений</span>
                 <span class="installment__desc">Выберите наиболее подходящее</span>
                 <div class="installment__wrap-button">
-                    <a href="<?= Url::to(['site/genplan']) ?>" class="btn btn_transparent installment__btn installment__btn_mob">
+                    <a href="<?= Url::to(['genplan/index']) ?>"
+                       class="btn btn_transparent installment__btn installment__btn_mob">
                         <i class="icon icon-click"></i><?= Yii::t('app', 'select_from_genplan_txt') ?></a>
-                    <a href="#" data-iframe-src="<?= Yii::$app->estateWidget->getProjectUrl() ?>/1/filter" class="btn btn_transparent installment__btn js_popup_open"><i class="icon">
+                    <a href="#" data-iframe-src="<?= Yii::$app->estateWidget->getProjectUrl() ?>/1/filter"
+                       class="btn btn_transparent installment__btn js_popup_open"><i class="icon">
                             <img src="/img/svg/nastroiki.svg"></i><?= Yii::t('app', 'search_by_params_txt') ?></a>
                 </div>
             </div>
@@ -199,7 +182,8 @@ $this->title = Yii::t('app', 'logotype_company_txt');
             <div class="project__inner">
                 <?php foreach ($developerObjectModels as $developerObjectModel) : ?>
                     <div class="project__item">
-                        <div class="project__img" style="background-image: url(<?= $developerObjectModel->illustration_image ?>)">
+                        <div class="project__img"
+                             style="background-image: url(<?= $developerObjectModel->illustration_image ?>)">
                             <div class="project__logo">
                                 <?= Html::img($developerObjectModel->image_logo_big_thumb) ?>
                             </div>

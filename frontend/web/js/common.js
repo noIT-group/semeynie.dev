@@ -143,9 +143,10 @@ $(document).ready(function () {
             {
                 breakpoint: 992,
                 settings: {
+                    initialSlide: 0,
                     speed: 300,
                     autoplaySpeed: 3000,
-                    centerMode: false,
+                    centerMode: true,
                     variableWidth: false,
                     autoplay: false,
                     asNavFor: '.gallery__slider_mob',
@@ -167,6 +168,15 @@ $(document).ready(function () {
             swipe: true,
             asNavFor: '.gallery-new__slider',
             infinite: false,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        initialSlide: 0,
+                        centerMode: false
+                    }
+                }
+            ]
         });
 
     }

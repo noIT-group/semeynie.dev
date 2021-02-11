@@ -39,15 +39,13 @@ $this->title = Yii::t('app', 'gallery_txt');
                 </div>
 
                 <div class="gallery__slider_mob">
-                    <div class="gallery__slide_mob">
-                        <img data-lazy="/img/gallery__slide1.jpg">
-                    </div>
-                    <div class="gallery__slide_mob">
-                        <img data-lazy="/img/gallery__slide2.jpg">
-                    </div>
-                    <div class="gallery__slide_mob">
-                        <img data-lazy="/img/gallery__slide1.jpg">
-                    </div>
+                    <?php foreach ($models as $model) : ?>
+                        <div class="gallery__slide_mob">
+                            <?php if ($model->image) : ?>
+                                <img data-lazy="<?= $model->image_thumb ?>">
+                            <?php endif ?>
+                        </div>
+                    <?php endforeach ?>
                 </div>
 
                 <div class="gallery-new__arrow">

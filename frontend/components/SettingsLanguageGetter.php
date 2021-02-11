@@ -14,7 +14,7 @@ class SettingsLanguageGetter extends Component
      */
     public function getAttribute($attribute, $language = null)
     {
-        if($language === null) {
+        if ($language === null) {
             $language = Yii::$app->language;
         }
 

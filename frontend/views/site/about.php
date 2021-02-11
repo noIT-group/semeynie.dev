@@ -12,6 +12,7 @@ use frontend\models\DeveloperObject;
 use frontend\models\Document;
 use frontend\widgets\SocialNetworkWidget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 $this->title = Yii::t('app', 'about_us_txt');
@@ -25,17 +26,16 @@ $this->title = Yii::t('app', 'about_us_txt');
 
 <section class="developer__hero fix">
     <h2 class="title"><?= Yii::t('app', 'about_us_txt') ?></h2>
-    <p class="developer__desc">C гордостью и чувством ответственности за будущее любимого многими микрорайона Таирова,
-        мы представляем наш новый жилой комплекс <strong>СЕМЕЙНЫЕ ТРАДИЦИИ</strong>. Мы вложили в него наш обширный опыт
-        создания особых домов и по-настоящему комфортного жилья. Уверены, он станет реализацией актуальных потребностей
-        бурно развивающегося спального района Одессы.</p>
+
+    <p class="developer__desc"><?= Yii::t('app', 'about_body_txt') ?></p>
     <div class="developer__hero-img">
         <img src="/img/developer-desc.jpg">
     </div>
     <div class="developer__hero-link">
-        <a href="#" class="btn btn_beige"><?= Yii::t('app', 'select_flat_txt') ?></a>
-        <a href="#" class="btn__link"><?= Yii::t('app', 'watch_gallery_txt') ?> <img src="/img/arrows-btn-link.svg"
-                                                                                     class="btn__link-img"></a>
+        <a href="<?= Url::to(['genplan/index']) ?>" class="btn btn_beige"><?= Yii::t('app', 'select_flat_txt') ?></a>
+        <a href="<?= Url::to(['site/gallery']) ?>" class="btn__link"><?= Yii::t('app', 'watch_gallery_txt') ?>
+            <img src="/img/arrows-btn-link.svg" class="btn__link-img">
+        </a>
     </div>
 </section>
 
@@ -61,7 +61,7 @@ $this->title = Yii::t('app', 'about_us_txt');
     </section>
 <?php endif ?>
 
-<?php if($developerObjectModels) : ?>
+<?php if ($developerObjectModels) : ?>
     <section class="other-projects fix">
 
         <h2 class="title"><?= Yii::t('app', 'another_developer_project_txt') ?></h2>
@@ -70,7 +70,7 @@ $this->title = Yii::t('app', 'about_us_txt');
 
             <?php foreach ($developerObjectModels as $developerObjectIndex => $developerObjectModel) : ?>
 
-                <?php if($developerObjectIndex % 2) : ?>
+                <?php if ($developerObjectIndex % 2) : ?>
                     <div class="other-projects__item other-projects__even">
 
                         <div class="other-projects_left">

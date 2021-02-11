@@ -6,6 +6,7 @@ use frontend\models\AboutDeveloperSettings;
 use frontend\models\AboutProjectSettings;
 use frontend\models\DeveloperObject;
 use frontend\models\Document;
+use frontend\models\FeaturesSettings;
 use frontend\models\Gallery;
 use frontend\models\InstallmentApartmentSettings;
 use frontend\models\MultiSlider;
@@ -54,6 +55,7 @@ class SiteController extends Controller
         return $this->render('index', [
             'homeSliderModels' => $homeSliderModels,
             'aboutProjectSettings' => AboutProjectSettings::getAll(),
+            'featuresSettings' => FeaturesSettings::getAll(),
             'installmentApartmentSettings' => InstallmentApartmentSettings::getAll(),
             'aboutDeveloperSettings' => AboutDeveloperSettings::getAll(),
             'documentModels' => $documentModels,
@@ -84,8 +86,6 @@ class SiteController extends Controller
             'developerObjectModels' => $developerObjectModels,
         ]);
     }
-
-
 
     /**
      * @return string
