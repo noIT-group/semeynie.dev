@@ -51,7 +51,7 @@ class EstateFloor
 
                 $floorModel->available_flats = intval($floorModel->available_flats);
 
-                $floorModel->iframe_url = "{$widget_domain}/{$floorModel->section_id}/flats/{$floorModel->id}";
+                $floorModel->iframe_url = "{$widget_domain}/1/flats/{$floorModel->id}";
 
                 if (($floorModel->available_flats)) {
                     $floorModel->available_flats_txt = ' ' . Yii::t('app', 'in_sale_txt', ['value' => $floorModel->available_flats]);

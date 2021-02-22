@@ -32,6 +32,9 @@ return [
     'section_txt' => 'Секція',
     "form_thanks_txt" => "<strong>Спасибі!</strong><br>Ваші контакти відправлені відділу продажів і незабаром з Вами зв'яжеться наш менеджер.",
 
+    'home_page__button_txt' => 'На головну',
+    'error__label' => 'Помилка',
+
     'scale_txt' => 'Масштаб',
 
     'select_by_params_txt' => 'Підбір за параметрами',
